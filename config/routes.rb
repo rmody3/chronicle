@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "application#index"
 
   resources :accounts
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:create, :destroy]
 
 
 end
