@@ -15,10 +15,3 @@
 
 # Ignore Byebug command history file.
 .byebug_history
-
-#API Keys:
-# The Guardian:
-# api-key=3945de8e-632c-40c1-9093-4103eb73b723
-
-#NY Times:
-# 0668f4553bce4d36ab33db11dfef2d3d
