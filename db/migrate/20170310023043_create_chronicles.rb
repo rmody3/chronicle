@@ -1,6 +1,6 @@
-class CreateTopics < ActiveRecord::Migration[5.0]
+class CreateChronicles < ActiveRecord::Migration[5.0]
   def change
-    create_table :topics do |t|
+    create_table :chronicles do |t|
       t.string :name
       t.string :description
       t.string :type
