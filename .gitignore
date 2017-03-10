@@ -22,3 +22,6 @@
 
 #NY Times:
 # 0668f4553bce4d36ab33db11dfef2d3d
+
+# Ignore application configuration
+/config/application.yml
