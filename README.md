@@ -20,6 +20,7 @@ has many Accounts, through subscriptions
 has many Articles, through article_topics
 has many Topic_tags
 has many tags, through topic_tags
+has_many comments
 name  | admin | type | upvotes | description
 Netflix | Rahul | public | 100 | This is about netflix all things
 
@@ -33,7 +34,7 @@ Rahul | rmody3@gmail.com | sadkfj;aslkfj;alkfja; | this is me
 #### Articles
 has many article_topics
 has many topics, through article_topics
-title | snippet | date | url | pic_url  
+title | description | date | url | pic_url  
 IPO   | We IPO'ed | 1/1/2000 | www.times.com/netflix/2000/1/1
 
 #### subscriptions (join table)
