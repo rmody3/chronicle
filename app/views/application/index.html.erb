@@ -1,0 +1,16 @@
+<h1> Welcome to Chronicle</h1>
+<h1>login or create new </h1>
+<%= form_for(@account, url: sessions_path) do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit :Login%>
+<% end %>
+
+<h1> Today's Trending Chronicle</h1>
+<div>
+  <h3>placeholder for trending chronicle</h3>
+</div>
