@@ -1,5 +1,5 @@
 <h1>Sign Up</h1>
-<%= form_for(:account, :url => {:controller => 'accounts', :action=> 'create'}) do |f| %>
+<%= form_for @account do |f| %>
   <p>Name: <%= f.text_field :name %> </p>
   <p>Email: <%= f.text_field :email %> </p>
   <p>Password: <%= f.text_field :password %> </p>
@@ -7,3 +7,6 @@
   <p>Bio: <%= f.text_area :bio %> </p>
   <%= f.submit :Create %>
   <% end %>
+
+
+<%# original syntax (:account, :url => {:controller => 'accounts', :action=> 'create'})%>

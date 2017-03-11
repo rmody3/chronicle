@@ -7,9 +7,10 @@ class SessionsController < ApplicationController
 
   def create
     @account = Account.find_by(email: account_params[:email])
+
     if @account && @account.authenticate(account_params[:password])
       session[:account_id] = @account.id
-      redirect_to @account, notice: "Welcome Back"
+      redirect_to account_path(@account)
     else
       redirect_to index
     end

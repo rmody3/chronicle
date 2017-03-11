@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   resources :accounts
   resources :sessions, only: [:create, :destroy]
-
+  resources :chronicles
 
 end
