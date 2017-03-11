@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
   end
 
   def current_account
-    @current_account ||= Account.find(session[:account_id]) if logged_in?
+    @current_account ||= Account.find(session[:account_id])
+  end
+
+  def require_logged_in
+    redirect_to controller:'sessions', action:'new' unless current_account
   end
 end
