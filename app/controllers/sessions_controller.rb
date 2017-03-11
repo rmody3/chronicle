@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:account_id] = @account.id
       redirect_to @account, notice: "Welcome Back"
     else
-      render index
+      redirect_to index
     end
   end
 
