@@ -1,0 +1,21 @@
+<h1>Create a New Chronicle</h1>
+<%= form_for @chronicle do |f| %>
+<%=f.hidden_field :admin_id, value: "1"%>
+<!-- should change value: "1" to current_account -->
+<div class="create_chronicle">
+  <%=f.label :name %>
+  <%=f.text_field :name %>
+</div>
+<div class="create_chronicle">
+  <%=f.label :description %>
+  <%=f.text_area :description %>
+</div>
+<div class="create_chronicle">
+  <%=f.label :type, 'Make Public?' %>
+  <%=f.hidden_field :type, value: 'private'%>
+  <%=f.check_box :type, checked_value: "public" %>
+</div>
+<div class="create_chronicle">
+  <%=f.submit %>
+</div>
+<% end %>

@@ -1,0 +1,9 @@
+.create_chronicle {
+  text-align: center;
+  margin: 1em;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1em
+}
