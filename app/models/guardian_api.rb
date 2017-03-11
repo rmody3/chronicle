@@ -19,6 +19,13 @@ class GuardianAPI
 		@order_by = "order-by=relevance&"
 	end
 
+	def query(search)
+		search_input_formatted(search)
+		search_format
+		request = HTTParty.get(Endpoints::SEARCH_URL+@search_format+Endpoints::API_PARTIAL_URL).to_json
+		@request_hash = JSON.parse(request)
+	end
+	
 	def search_format
 		# add '&' at the end of all search params except for 'q='
 		# created this in case we add search filters later
@@ -55,12 +62,6 @@ class GuardianAPI
 		@search_input_formatted = user_search_term.strip.gsub(" ", "%20").gsub("&", "%26").gsub('"', "%22").gsub("@", "%40").gsub("#", "%23").gsub("$", "%24").gsub("%", "%25").gsub("^", "%5").gsub("=", "%3D").gsub("?", "%3F")
 	end
 
-	def query(search)
-		search_input_formatted(search)
-		search_format
-		request = HTTParty.get(Endpoints::SEARCH_URL+@search_format+Endpoints::API_PARTIAL_URL).to_json
-		@request_hash = JSON.parse(request)
-	end
 
 end
 
