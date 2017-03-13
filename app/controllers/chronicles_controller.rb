@@ -21,6 +21,7 @@ class ChroniclesController < ApplicationController
 
   def show
     @chronicle = Chronicle.find(params[:id])
+    @comments = Comment.new
   end
 
   private

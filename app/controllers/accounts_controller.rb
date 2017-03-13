@@ -25,7 +25,6 @@ class AccountsController < ApplicationController
       flash[:notice] = "Not Valid. Please try again"
       render "new"
     end
-
   end
 
   private
