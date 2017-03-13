@@ -1,0 +1,14 @@
+
+	<ol>
+		<% @search["response"]["results"].each_with_index do |article, index| %>
+			<li>
+			<%= link_to "#{article["webTitle"]}", article["webUrl"], target: :_blank %><br>
+			<% if article["fields"]["trailText"] == nil %>
+				<%= "Sorry no snippets for this article" %>
+			<% else %>
+				<%= "#{article["fields"]["trailText"].split(" ")[0..12].join(" ")}..." %><br>
+			<% end %>
+			</li>
+			
+		<% end %>
+	</ol>

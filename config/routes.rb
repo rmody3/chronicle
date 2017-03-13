@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :accounts
   resources :sessions, only: [:new, :create, :destroy]
   resources :chronicles
+  resources :articles
 
-  post 'searches', to: 'searches#create', as: 'search_create'
+  get 'searches', to: 'searches#index', as: 'searches'
 
 end

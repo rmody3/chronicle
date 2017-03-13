@@ -9,30 +9,28 @@
   </head>
 
   <body>
- 
-      <li class="search-form">
-        <%= form_tag('/search', id: "search-form") do %>
-          <%= text_field_tag "query", nil, id: "search-field", placeholder: "Search for Music!", class: "search-field" %>
-          <%= button_tag type: 'submit', id: "search-submit", disabled: "disabled" do %>
-           <%= icon('search', class: "fa-2x") %>
-          <% end %>
+
+      <div>
+        <%= link_to image_tag('chronicle_logo_vector.svg', size: '40x40'), '/' %>
+
+        <%= form_tag(searches_path, method: :get) do  %>
+        <%= search_field_tag name="search[search_term]", nil, placeholder: "Search here" %>
+        # per page: <%= number_field_tag name="search[page_size]", 20, in: 20..50, step: 10 %>
+
+        Start Date: <%= date_field_tag name="search[from_date]" %>
+
+        End Date: <%= date_field_tag name="search[to_date]" %>
+
+         Order By: relevance<%= radio_button_tag name="search[order_by]", "relevance" %>
+
+        newest<%= radio_button_tag name="search[order_by]", "newest" %>
+
+        oldest<%= radio_button_tag name="search[order_by]", "oldest" %>
+
+        <%= submit_tag "Chronicles" %>
+        <%= submit_tag "Articles" %>
         <% end %>
-
-      <%= form_tag(search_create_path) do  %>
-      <%= search_field_tag :search_input, placeholder: "Search here" %>
-      # per page: <%= number_field_tag :page_size, value: 20, in: 20..50, step: 10 %>
-      <%= date_field_tag :from_date, 
-
-
-
-
-      <%= submit_tag "Chronicles" %>
-      <%= submit_tag "Articles" %>
-      <% end %>
-      </li>
-  	<!-- nav bar with search form here -->
-  	<!-- when user searches for article send to articles index -->
-  	<!-- when user searches for article send to chronicles index -->
+      </div>
     <%= yield %>
   </body>
 </html>
