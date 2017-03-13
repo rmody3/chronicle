@@ -19,8 +19,9 @@
         <% end %>
 
       <%= form_tag(search_create_path) do  %>
-      <%= search_field_tag :search_input, placeholder: "Search chronicles or articles" %>
+      <%= search_field_tag :search_input, placeholder: "Search here" %>
       # per page: <%= number_field_tag :page_size, value: 20, in: 20..50, step: 10 %>
+      <%= date_field_tag :from_date, 
 
 
 
