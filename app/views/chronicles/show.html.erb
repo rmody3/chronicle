@@ -1,4 +1,9 @@
 <h1><%= @chronicle.name %></h1>
 <h1><%= @chronicle.description %></h1>
-<h1><%= @chronicle.type %></h1>
+  <h6><%  if @chronicle.public == true%>
+      <%= "this chronicle is public"  %>
+      <% else %>
+      <%= "this chronicle is private" %>
+      <%end%>
+  </h6>
 <h1><%= @chronicle.upvotes %></h1>

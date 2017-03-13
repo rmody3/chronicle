@@ -3,5 +3,10 @@
 <h2>  show all chronicles </h2>
 <%= link_to "chronicles index" %>
 <h1>show page</h1>
-
-<h6> chronicles where admin_id == admin_id of current_account </h6>
+<%= link_to "chronicles new", new_chronicle_path %> <br>
+<% if @mychronicles %>
+    <% @mychronicles.each do |c|%>
+      <%= link_to c.name, chronicle_path(c) %>
+    <% end %>
+  <% end %>
+<h6> </h6>

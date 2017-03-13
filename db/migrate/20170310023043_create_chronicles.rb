@@ -3,7 +3,7 @@ class CreateChronicles < ActiveRecord::Migration[5.0]
     create_table :chronicles do |t|
       t.string :name
       t.string :description
-      t.string :type
+      t.boolean :public, default: true
       t.integer :upvotes
       t.integer :admin_id
 
