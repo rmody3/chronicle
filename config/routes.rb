@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :chronicles
 
+  post 'searches', to: 'searches#create', as: 'search_create'
+
 end
