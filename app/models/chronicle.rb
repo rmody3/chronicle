@@ -8,7 +8,7 @@ class Chronicle < ApplicationRecord
   has_many :comments
 
   def self.search(search_term)
-    chronicle_match = Chronicle.joins(:tags).where('tags.name ILIKE ? AND public = ?',  "%#{search_term}%", 1)
-    chronicle_match += Chronicle.where('title ILIKE ? AND public = ?', "%#{search_term}%", 1)
+    chronicle_match = Chronicle.joins(:tags).where('tags.name ILIKE ? AND private = ?',  "%#{search_term}%", false)
+    chronicle_match += Chronicle.where('name ILIKE ? AND private = ?', "%#{search_term}%", false)
   end
 end

@@ -4,11 +4,7 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find(params[:id])
-    @chronicles = Chronicle.all
-    @mychronicles = []
-      @chronicles.map do |chron|
-        @mychronicles << chron if chron.admin_id == current_account.id
-      end
+    @mychronicles = Chronicle.joins(:subscriptions).where("subscriptions.account_id = ?", @account.id)
   end
 
   def new
