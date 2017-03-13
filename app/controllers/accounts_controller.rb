@@ -1,5 +1,7 @@
 class AccountsController < ApplicationController
 
+  before_action :require_login, only:[:show]
+
   def show
     @account = Account.find(params[:id])
   end
@@ -11,7 +13,7 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(account_params)
     if @account.save
-      log_in @account
+      session[:account_id] = @account.id
       flash[:notice] = "Your account was created successfully"
       render "show"
     else

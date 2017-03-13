@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     @account = Account.new
   end
 
-  def require_login  
+  def require_login
       redirect_to '/' if current_account.blank?
     #so that we can just use a before_action and then it will check before any page and redirect to login scree if not ready
 
@@ -16,7 +16,4 @@ class ApplicationController < ActionController::Base
     @current_account ||= Account.find(session[:account_id])
   end
 
-  def require_logged_in
-    redirect_to controller:'sessions', action:'new' unless current_account
-  end
 end

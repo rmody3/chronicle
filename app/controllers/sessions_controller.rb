@@ -13,13 +13,13 @@ class SessionsController < ApplicationController
       redirect_to account_path(@account)
     else
        flash.now[:danger] = 'Invalid email/password combination'
-      render account_path'new'
+      redirect_to '/'
     end
   end
 
   def destroy
     session[:account_id] = nil
-    redirect_to root_url
+    redirect_to root_path
   end
 
   private

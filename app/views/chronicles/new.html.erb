@@ -11,9 +11,9 @@
   <%=f.text_area :description %>
 </div>
 <div class="create_chronicle">
-  <%=f.label :type, 'Make Public?' %>
-  <%=f.hidden_field :type, value: 'private'%>
-  <%=f.check_box :type, checked_value: "public" %>
+  <%=f.label :visibility, 'Make Private?' %>
+  <%=f.hidden_field :visibility, value: 'public'%>
+  <%=f.check_box :visibility, checked_value: "private" %>
 </div>
 <div class="create_chronicle">
   <%=f.submit %>

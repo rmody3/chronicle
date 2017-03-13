@@ -7,5 +7,5 @@ class Chronicle < ApplicationRecord
   has_many :tags, through: :chronicle_tags
   has_many :comments
 
-  validates :type, inclusion: {in: ["public", "private"]}
+  validates :visibility, inclusion: {in: ["public", "private"]}
 end
