@@ -5,11 +5,11 @@ class SearchesController < ApplicationController
 			@chronicles = Chronicle.public
 			@chronicle_display = []
 
-			@chronicles.each do |chron| 
-    		chron.tags.each do |tag| 
-    			@chronicle_display << chron if @search.search_term == tag && !@chronicle_display.include?(chron) 
-  		 	end 
-		 	end 
+			@chronicles.each do |chron|
+    		chron.tags.each do |tag|
+    			@chronicle_display << chron if @search.search_term == tag && !@chronicle_display.include?(chron)
+  		 	end
+		 	end
 			render "searches/chronicles/index"
 
 		elsif params[:commit] == "Articles"

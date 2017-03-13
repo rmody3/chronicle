@@ -16,7 +16,7 @@ class GuardianAPI
 	end
 
 	def create_search_format(params)
-		@search_format = "show-fields=trailText&"
+		@search_format = "show-fields=trailText,thumbnail&"
 		params.each do |key, value|
 			if !value.blank? && key != "search_term"
 				@search_format += "#{key.gsub("_", "-")}=#{value}&"
@@ -43,4 +43,3 @@ class GuardianAPI
 	end
 
 end
-
