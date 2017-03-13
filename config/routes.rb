@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :articles
 
   get 'searches', to: 'searches#index', as: 'searches'
+  delete "logout", to: "sessions#destroy"
 
 end
