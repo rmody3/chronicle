@@ -1,5 +1,5 @@
 <h1> Welcome to Chronicle</h1>
-<h1>login or create new </h1>
+<h2>login page (should be in sessions#new technically according to REST)</h2>
 <%= form_for(@account, url: sessions_path) do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %>
@@ -9,6 +9,7 @@
 
   <%= f.submit :Login%>
 <% end %>
+<p>New user? <%= link_to "Sign up now", accounts_path %></p>
 
 <h1> Today's Trending Chronicle</h1>
 <div>

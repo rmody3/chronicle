@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
       session[:account_id] = @account.id
       redirect_to account_path(@account)
     else
-      redirect_to index
+       flash.now[:danger] = 'Invalid email/password combination'
+      render account_path'new'
     end
   end
 

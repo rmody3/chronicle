@@ -1,12 +1,24 @@
 <h1>Sign Up</h1>
-<%= form_for @account do |f| %>
-  <p>Name: <%= f.text_field :name %> </p>
-  <p>Email: <%= f.text_field :email %> </p>
-  <p>Password: <%= f.text_field :password %> </p>
-  <p>Confirm Password: <%= f.text_field :password %> </p>
-  <p>Bio: <%= f.text_area :bio %> </p>
+<div>
+<%= form_for(@account) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %><br>
+
+  <%= f.label :password %>
+  <%= f.text_field :password %><br>
+
+  <%= f.label :password_confirmation%>
+  <%= f.text_field :password_confirmation %><br>
+
+  <%= f.label :bio %>
+  <%= f.text_area :bio %><br>
+
   <%= f.submit :Create %>
   <% end %>
+  </div>
 
 
 <%# original syntax (:account, :url => {:controller => 'accounts', :action=> 'create'})%>

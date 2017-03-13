@@ -11,11 +11,14 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(account_params)
     if @account.save
+      log_in @account
       flash[:notice] = "Your account was created successfully"
+      render "show"
     else
       flash[:notice] = "Not Valid. Please try again"
+      render "new"
     end
-    redirect_to chronicles_path
+
   end
 
   private

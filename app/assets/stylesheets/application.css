@@ -13,7 +13,11 @@
  *= require_tree .
  *= require_self
  */
-h1 {
+h1, h2, p, div {
   text-align: center;
-  
 }
+
+form {
+ display: inline-block;
+ text-align: center;
+ }
