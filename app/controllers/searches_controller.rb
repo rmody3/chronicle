@@ -1,20 +1,15 @@
 class SearchesController < ApplicationController
 	def index
 		if params[:commit] == "Chronicles"
-			@search = Search.create(search_terms: search_params[:search_terms])
-			@chronicles = Chronicle.public
-			@chronicle_display = []
-
-			@chronicles.each do |chron|
-    		chron.tags.each do |tag|
-    			@chronicle_display << chron if @search.search_term == tag && !@chronicle_display.include?(chron)
-  		 	end
-		 	end
+			@search_term = chronicle_params[:search_term]
+			# search chronicles to do a wild card match
+			## currently search term must match tag exactly for tags since tags are one word
+			@chronicle_match = Chronicle.search(@search_term)
 			render "searches/chronicles/index"
 
 		elsif params[:commit] == "Articles"
-			@search_term = search_params[:search_term]
-			@search = GuardianAPI.new.query(search_params)
+			@search_term = article_params[:search_term]
+			@search = GuardianAPI.new.query(article_params)
 			render "searches/articles/index"
 		else
 			flash[:message] = "something went wrong"
@@ -22,8 +17,13 @@ class SearchesController < ApplicationController
 	end
 
 	private
-	def search_params
+	def article_params
 		params.require(:search).permit(:search_term, :page_size, :from_date, :to_date, :order_by)
 	end
+
+	def chronicle_params
+		params.require(:search).permit(:search_term)
+	end
+
 
 end

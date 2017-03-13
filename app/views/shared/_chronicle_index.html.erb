@@ -1,0 +1,32 @@
+
+	<ol>
+		<% @chronicle_match.each do |chronicle| %>
+			<ul>
+				<div class="chronicles">
+					<%= chronicle.title %>
+					<%= chornicle.description %>
+					<div class="tags">
+						<% chronicle.tags.each do |tag|%>
+							<%=link_to(tag, searches_path(:"search[search_term]" => tag))%>
+							<% end %>
+					</div>
+
+
+				</div>
+
+		</ul>
+
+		<% end %>
+	</ol>
+
+	<!-- <% if article["fields"]["thumbnail"].blank?%>
+		<%= image_tag('article_default', size: "100x60") %>
+	<% else %>
+		<%= image_tag(article["fields"]["thumbnail"], size: "100x60") %>
+	<% end %>
+	<%= link_to "#{article["webTitle"]}", article["webUrl"], target: :_blank %><br>
+	<% if article["fields"]["trailText"].blank?%>
+		<%= "Sorry no snippets for this article" %>
+	<% else %>
+		<%= "#{article["fields"]["trailText"].split(" ")[0..12].join(" ")}..." %><br>
+	<% end %> -->
