@@ -4,6 +4,11 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find(params[:id])
+    @chronicles = Chronicle.all
+    @mychronicles = []
+      @chronicles.map do |chron|
+        @mychronicles << chron if chron.admin_id == current_account.id
+      end
   end
 
   def new
@@ -25,7 +30,7 @@ class AccountsController < ApplicationController
 
   private
     def account_params
-      params.require(:account).permit(:name, :email, :password, :bio)
+      params.require(:account).permit(:name, :email, :password, :password_confirmation, :bio)
     end
 
 end
