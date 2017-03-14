@@ -33,6 +33,10 @@ class ChroniclesController < ApplicationController
     @comment_vote = CommentVote.new
   end
 
+  def edit
+    @chronicle = Chronicle.find(params[:id])
+  end
+
   private
     def chronicle_params
       params.require(:chronicle).permit(:name, :description, :private,  :admin_id)
