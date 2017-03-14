@@ -1,0 +1,6 @@
+<% @chronicle.comments.each do |comment| %>
+  <%= link_to comment.account.name, account_path(comment.account) %>
+  <%= comment.created_at.strftime("%b %d %Y %k:%M") %>
+  <%= comment.content %>
+  <%= comment.upvotes%><br />
+<% end %>

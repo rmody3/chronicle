@@ -1,5 +1,7 @@
 class SearchesController < ApplicationController
+
 	def index
+		@article_chronicle = ArticleChronicle.new
 		if params[:commit] == "Chronicles"
 			@search_term = chronicle_params[:search_term]
 			# search chronicles to do a wild card match

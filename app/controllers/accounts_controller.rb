@@ -4,7 +4,12 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find(params[:id])
-    @mychronicles = Chronicle.joins(:subscriptions).where("subscriptions.account_id = ?", @account.id)
+    if @account.id == current_account.id
+      @mychronicles = Chronicle.joins(:subscriptions).where("subscriptions.account_id = ?", @account.id)
+    else
+      redirect_to '/'
+      flash[:notice] = "Not your account brah"
+    end
   end
 
   def new
@@ -21,7 +26,6 @@ class AccountsController < ApplicationController
       flash[:notice] = "Not Valid. Please try again"
       render "new"
     end
-
   end
 
   private
