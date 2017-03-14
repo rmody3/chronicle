@@ -1,11 +1,12 @@
 <h1><%= @chronicle.name %></h1>
-<h1><%= @chronicle.description %></h1>
-  <h6><%  if @chronicle.private == true%>
+<h3><%= @chronicle.description %></h3>
+  <h5><%  if @chronicle.private == true%>
       	<%= "this chronicle is private"  %>
       <% else %>
       	<%= "this chronicle is public" %>
       <%end%>
-  </h6>
+  </h5>
+<h5>Browse all <%= link_to "chronicles", chronicles_path %></h5>
 
 <div class="tags">
   <% if !@chronicle.tags.blank? %>

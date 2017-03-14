@@ -51,10 +51,10 @@ ActiveRecord::Schema.define(version: 20170314214501) do
   create_table "chronicle_votes", force: :cascade do |t|
     t.integer  "chronicle_id"
     t.integer  "account_id"
-    t.boolean  "upvote"
-    t.boolean  "downvote"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "upvote",       default: false
+    t.boolean  "downvote",     default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "chronicles", force: :cascade do |t|

@@ -2,6 +2,7 @@ class ChroniclesController < ApplicationController
   protect_from_forgery with: :exception
 
   def index
+    @chronicle_match = Chronicle.all.sort_by {|chron| chron.downvotes - chron.upvotes }
   end
 
   def new
@@ -35,6 +36,10 @@ class ChroniclesController < ApplicationController
 
   def edit
     @chronicle = Chronicle.find(params[:id])
+  end
+
+  def update
+    
   end
 
   private
