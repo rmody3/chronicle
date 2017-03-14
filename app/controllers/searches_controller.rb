@@ -1,5 +1,7 @@
 class SearchesController < ApplicationController
+
 	def index
+		@article_chronicle = ArticleChronicle.new
 		if params[:commit] == "Chronicles"
 			@search = Search.create(search_terms: search_params[:search_terms])
 			@chronicles = Chronicle.public

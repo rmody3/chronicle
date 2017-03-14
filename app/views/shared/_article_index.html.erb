@@ -10,6 +10,13 @@
 					<% else %>
 						<%= "#{article["fields"]["trailText"].split(" ")[0..12].join(" ")}..." %><br>
 					<% end %>
+					<%=  form_for @article_chronicle, url:add_article_path do |f|%>
+					<%= f.collection_select :chronicle_id, Chronicle.where(admin_id: current_account.id ), :id, :name %>
+
+					<%= image_submit_tag("plus_sign.svg", width: "40", height: "40") %>
+
+					<% end %>
+
 				</div>
 
 		</ul>

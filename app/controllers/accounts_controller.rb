@@ -4,11 +4,16 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find(params[:id])
-    @chronicles = Chronicle.all
-    @mychronicles = []
-      @chronicles.map do |chron|
-        @mychronicles << chron if chron.admin_id == current_account.id
-      end
+    if @account.id == current_account.id
+      @chronicles = Chronicle.all
+      @mychronicles = []
+        @chronicles.map do |chron|
+          @mychronicles << chron if chron.admin_id == current_account.id
+        end
+    else
+      redirect_to '/'
+      flash[:notice] = "Not your account brah"
+    end
   end
 
   def new
