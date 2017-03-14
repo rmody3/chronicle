@@ -10,10 +10,12 @@
   <body>
       <div>
         <%= link_to image_tag('chronicle_logo_vector.svg', size: '40x40'), '/' %>
+        
         <% if logged_in? %>
           <%= link_to "Log out", logout_path, method: :delete %>
           <%= link_to "My Profile", account_path(current_account) %>
         <% end %>
+        
         <%= form_tag(searches_path, method: :get) do  %>
         <%= search_field_tag name="search[search_term]", nil, placeholder: "Search here" %>
         # per page: <%= number_field_tag name="search[page_size]", 20, in: 20..50, step: 10 %>
