@@ -29,12 +29,12 @@
         <% end %>
         
         <%= form_tag(searches_path, method: :get) do  %>
-        <%= search_field_tag name="search[search_term]", nil, placeholder: "Search here" %>
+        <%= search_field_tag name="search[search_term]", "", placeholder: "Search here" %>
         # per page: <%= number_field_tag name="search[page_size]", 20, in: 20..50, step: 10 %>
 
-        Start Date: <%= date_field_tag name="search[from_date]" %>
+        From: <%= date_field_tag name="search[from_date]", Date.today-30.days %>
 
-        End Date: <%= date_field_tag name="search[to_date]" %>
+        To: <%= date_field_tag name="search[to_date]", Date.today %>
 
         Order By: relevance<%= radio_button_tag name="search[order_by]", "relevance" %>
 
