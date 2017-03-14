@@ -9,7 +9,6 @@ class ChroniclesController < ApplicationController
   end
 
   def create
-
     @chronicle = Chronicle.create(chronicle_params)
     @chronicle.admin_id = current_account.id
     @chronicle.save

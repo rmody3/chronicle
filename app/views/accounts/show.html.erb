@@ -1,12 +1,15 @@
 <h1>Welcome <%= @account.name %></h1>
-<h1>Your Chronicles</h1>
 <h2>  show all chronicles </h2>
 <%= link_to "chronicles index" %>
 <h1>show page</h1>
 <%= link_to "chronicles new", new_chronicle_path %> <br>
-<% if @mychronicles %>
+  <h2>My Chronicles</h2>
+  <ul>
+  <% if @mychronicles %>
     <% @mychronicles.each do |c|%>
-      <%= link_to c.name, chronicle_path(c) %>
+    <li> <%= link_to c.name, chronicle_path(c) %></li>
+    <br?>
     <% end %>
   <% end %>
+  </ul>
 <h6> </h6>
