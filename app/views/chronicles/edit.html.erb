@@ -1,2 +1,32 @@
 <h1>Edit <%= @chronicle.name %></h1>
-<%= render "chronicle_form" %>
+
+<% if @chronicle.admin_id == current_account.id %>
+
+	<%= form_for @chronicle do |f| %>
+
+		<div class="editChronicle">
+		  <%= f.label :name %>
+		  <%= f.text_field :name, value: @chronicle.name %>
+		</div>
+
+		<div class="editChronicle">
+		  <%= f.label :description %>
+		  <%= f.text_area :description, value: @chronicle.description %>
+		</div>
+
+	  <div id="tag-box" >
+	    <a href="#" id="add-tag-button">Add a Tag</a>
+	  </div>
+
+		<div class="editChronicle">
+		  <%= f.label :private, 'Make Private?' %>
+		  <%= f.check_box :private, checked_value: @chronicle.private %>
+		</div>
+
+		<div class="editChronicle">
+		  <%= f.submit %>
+		</div>
+
+	<% end %>
+	
+<% end %>
