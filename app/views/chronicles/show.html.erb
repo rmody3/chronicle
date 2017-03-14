@@ -36,7 +36,7 @@
 	<% if article.pic_url.blank? %>
 		<%= image_tag("article_default", size: "100x60") %>
 	<% else %>
-		<%= image_tag("article.pic_url", size: "100x60") %>
+		<%= image_tag(article.pic_url, size: "100x60") %>
 	<% end %>
 
 	<%= link_to article.title, article.url %>
