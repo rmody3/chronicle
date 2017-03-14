@@ -14,25 +14,3 @@
 //= require jquery_ujs
 
 //= require_tree .
-
-// Rahul - messing with Jquery
-//   $(".add-tags").click(function(){
-//       $(".tags").append("<p>hi</p>");
-//   });
-//
-//
-//   <script>
-//   $(document).ready(function(){
-//     $("#clickbtn").click(function(){
-//       $("#tag-box").append("<input type='text'>");
-//     });
-//   });
-//   </script>
-//
-// var count = 0;
-// $(function(){
-//     $('p#add_field').click(function(){
-//         count += 1;
-//         $('#container').append('<strong>Link #' + count + '</strong>'+ '<input id="field_' + count + '" name="fields[]' + '" type="text" />' );
-//     });
-// });
