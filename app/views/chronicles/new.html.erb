@@ -1,27 +1,30 @@
 
 
 <h1>Create a New Chronicle</h1>
+
 <%= form_for @chronicle do |f| %>
-<div class="create_chronicle">
-  <%=f.label :name %>
-  <%=f.text_field :name %>
-</div>
-<div class="create_chronicle">
-  <%=f.label :description %>
-  <%=f.text_area :description %>
-</div>
 
+	<div class="createChronicle">
+	  <%= f.label :name %>
+	  <%= f.text_field :name %>
+	</div>
 
-<div id="tag-box" >
-  <a href="#" id="add-tag-button">Add a Tag</a>
-</div>
+	<div class="createChronicle">
+	  <%= f.label :description %>
+	  <%= f.text_area :description %>
+	</div>
 
+  <div id="tag-box" >
+    <a href="#" id="add-tag-button">Add a Tag</a>
+  </div>
 
-<div class="create_chronicle">
-  <%=f.label :private, 'Make Private?' %>
-  <%=f.check_box :private, checked_value: false %>
-</div>
-<div class="create_chronicle">
-  <%=f.submit %>
-</div>
+	<div class="createChronicle">
+	  <%= f.label :private, 'Make Private?' %>
+	  <%= f.check_box :private, checked_value: false %>
+	</div>
+
+	<div class="createChronicle">
+	  <%= f.submit %>
+	</div>
+
 <% end %>
