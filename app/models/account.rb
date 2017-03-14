@@ -1,6 +1,8 @@
 class Account < ApplicationRecord
   has_many :chronicles
   has_many :articles, through: :chronicles
+  has_many :chronicle_votes
+  has_many :votes, through: :chronicle_votes
   has_secure_password
 
   validates :name, presence: true , uniqueness: true, length: {in: 2..20}

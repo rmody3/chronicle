@@ -7,16 +7,27 @@
       <%end%>
   </h6>
 <h1><%= @chronicle.upvotes %></h1><br />
+<%= form_for @chronicle_vote do |f| %>
+	<%= f.hidden_field :downvote, value: true %>
+	<%= f.hidden_field :chronicle_id, value: true %>
+	<%= image_submit_tag('downvote.svg', width: "60", height: "60") %>
+<% end %>
+
+<%= form_for @chronicle_vote do |f| %>
+<%= f.hidden_field :upvote, value: true %>
+	<%= image_submit_tag('upvote.svg', width: "60", height: "60") %>
+<% end %>
 
 <% @chronicle.articles.each do |article| %>
 	<% if article.pic_url.blank? %>
-		<%= image_tag('article_default', size: "100x60") %>
+		<%= image_tag('article_default', size: "10x6") %>
 	<% else %>
-		<%= image_tag('article.pic_url', size: "100x60") %>
+		<%= image_tag('article.pic_url', size: "10x6") %>
 	<% end %>
 
 	<%= link_to article.title, article.url %>
 <% end %>
+
 
 <%= render "comments/new_comments" %><br />
 <%= render "comments/comments" %><br />
