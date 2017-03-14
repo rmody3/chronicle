@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :chronicles
   resources :articles
   resources :subscriptions
+  resources :tags, only: [:new, :create, :destroy]
 
   get 'searches', to: 'searches#index', as: 'searches'
   delete "logout", to: "sessions#destroy"
