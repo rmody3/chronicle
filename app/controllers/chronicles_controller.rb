@@ -30,6 +30,7 @@ class ChroniclesController < ApplicationController
     @chronicle = Chronicle.find(params[:id])
     @comment = Comment.new
     @chronicle_vote = ChronicleVote.new
+    @comment_vote = CommentVote.new
   end
 
   private

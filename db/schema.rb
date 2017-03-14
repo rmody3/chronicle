@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314183447) do
+ActiveRecord::Schema.define(version: 20170314214501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,19 +61,32 @@ ActiveRecord::Schema.define(version: 20170314183447) do
     t.string   "name"
     t.string   "description"
     t.boolean  "private",     default: false
-    t.integer  "upvotes"
+    t.integer  "upvotes",     default: 0
+    t.integer  "downvotes",   default: 0
+    t.integer  "votes",       default: 0
     t.integer  "admin_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
 
+  create_table "comment_votes", force: :cascade do |t|
+    t.integer  "comment_id"
+    t.integer  "account_id"
+    t.boolean  "upvote",     default: false
+    t.boolean  "downvote",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.string   "content"
-    t.integer  "upvotes"
     t.integer  "account_id"
     t.integer  "chronicle_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "upvotes",      default: 0
+    t.integer  "downvotes",    default: 0
+    t.integer  "votes",        default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "subscriptions", force: :cascade do |t|

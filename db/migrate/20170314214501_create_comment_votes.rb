@@ -1,7 +1,7 @@
-class CreateChronicleVotes < ActiveRecord::Migration[5.0]
+class CreateCommentVotes < ActiveRecord::Migration[5.0]
   def change
-    create_table :chronicle_votes do |t|
-      t.integer :chronicle_id
+    create_table :comment_votes do |t|
+      t.integer :comment_id
       t.integer :account_id
       t.boolean :upvote, default: false
       t.boolean :downvote, default: false
