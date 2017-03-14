@@ -51,11 +51,11 @@ ActiveRecord::Schema.define(version: 20170310024225) do
   create_table "chronicles", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.boolean  "public",      default: true
+    t.boolean  "private",     default: false
     t.integer  "upvotes"
     t.integer  "admin_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "comments", force: :cascade do |t|

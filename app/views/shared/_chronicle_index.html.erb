@@ -1,0 +1,19 @@
+
+	<ol>
+		<% @chronicle_match.each do |chronicle| %>
+			<ul>
+				<div class="chronicles">
+					<% if !Subscription.find_by(chronicle_id:chronicle.id, account_id: current_account.id)  %>
+						<%= button_to('+', subscriptions_path, method: :post, params: {chronicle_id: chronicle.id})%>
+					<% end %>
+					<%=link_to chronicle.name, chronicle_path(chronicle) %>
+					<%= chronicle.description %>
+					<div class="tags">
+						<% chronicle.tags.each do |tag|%>
+							<%=link_to(tag, searches_path, method: :posts, params: {"search[search_term]" => tag})%>
+						<% end %>
+					</div>
+				</div>
+		</ul>
+		<% end %>
+	</ol>

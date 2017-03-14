@@ -3,9 +3,13 @@
 		<% @search["response"]["results"].each_with_index do |article, index| %>
 			<ul>
 				<div class="articles">
-					<%= image_tag(article["fields"]["thumbnail"], size: "100x60") %>
+					<% if article["fields"]["thumbnail"].blank?%>
+						<%= image_tag('article_default', size: "100x60") %>
+					<% else %>
+						<%= image_tag(article["fields"]["thumbnail"], size: "100x60") %>
+					<% end %>
 					<%= link_to "#{article["webTitle"]}", article["webUrl"], target: :_blank %><br>
-					<% if article["fields"]["trailText"] == nil %>
+					<% if article["fields"]["trailText"].blank?%>
 						<%= "Sorry no snippets for this article" %>
 					<% else %>
 						<%= "#{article["fields"]["trailText"].split(" ")[0..12].join(" ")}..." %><br>

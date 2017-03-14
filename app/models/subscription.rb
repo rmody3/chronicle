@@ -1,4 +1,4 @@
 class Subscription < ApplicationRecord
   belongs_to :account
-  belongs_to :topic
+  belongs_to :chronicle
 end

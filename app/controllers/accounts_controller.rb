@@ -5,11 +5,7 @@ class AccountsController < ApplicationController
   def show
     @account = Account.find(params[:id])
     if @account.id == current_account.id
-      @chronicles = Chronicle.all
-      @mychronicles = []
-        @chronicles.map do |chron|
-          @mychronicles << chron if chron.admin_id == current_account.id
-        end
+      @mychronicles = Chronicle.joins(:subscriptions).where("subscriptions.account_id = ?", @account.id)
     else
       redirect_to '/'
       flash[:notice] = "Not your account brah"

@@ -8,9 +8,18 @@
   <%=f.label :description %>
   <%=f.text_area :description %>
 </div>
+
+<% if false %>
+<!--I am trying to mess with tags, see the application.js file for the jquery  -->
+<!-- <a href="#" id="clickbtn">Click Me</a>
+<div id="tag-box" class="tags">
+  <%= text_field_tag 'tags[]',nil, class: "add-tags" %>
+</div> -->
+<% end %>
+
 <div class="create_chronicle">
-  <%=f.label :public, 'Make Private?' %>
-  <%=f.check_box :public, checked_value: false %>
+  <%=f.label :private, 'Make Private?' %>
+  <%=f.check_box :private, checked_value: false %>
 </div>
 <div class="create_chronicle">
   <%=f.submit %>

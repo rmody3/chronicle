@@ -9,10 +9,12 @@ class ChroniclesController < ApplicationController
   end
 
   def create
+
     @chronicle = Chronicle.create(chronicle_params)
     @chronicle.admin_id = current_account.id
     @chronicle.save
-    if @chronicle =! nil
+    if @chronicle
+      Subscription.create(account_id: current_account.id, chronicle_id: @chronicle.id)
       redirect_to account_path(current_account)
     else
       render 'new'
@@ -26,7 +28,7 @@ class ChroniclesController < ApplicationController
 
   private
     def chronicle_params
-      params.require(:chronicle).permit(:name, :description, :public,  :admin_id)
+      params.require(:chronicle).permit(:name, :description, :private,  :admin_id)
     end
 
 
