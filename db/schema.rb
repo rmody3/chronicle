@@ -61,7 +61,9 @@ ActiveRecord::Schema.define(version: 20170314183447) do
     t.string   "name"
     t.string   "description"
     t.boolean  "private",     default: false
-    t.integer  "upvotes"
+    t.integer  "upvotes",     default: 0
+    t.integer  "downvotes",   default: 0
+    t.integer  "votes",       default: 0
     t.integer  "admin_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
@@ -69,11 +71,13 @@ ActiveRecord::Schema.define(version: 20170314183447) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
-    t.integer  "upvotes"
     t.integer  "account_id"
     t.integer  "chronicle_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "upvotes",      default: 0
+    t.integer  "downvotes",    default: 0
+    t.integer  "votes",        default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "subscriptions", force: :cascade do |t|
