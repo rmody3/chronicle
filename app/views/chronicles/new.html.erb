@@ -1,3 +1,5 @@
+
+
 <h1>Create a New Chronicle</h1>
 <%= form_for @chronicle do |f| %>
 <div class="create_chronicle">
@@ -9,13 +11,11 @@
   <%=f.text_area :description %>
 </div>
 
-<% if false %>
-<!--I am trying to mess with tags, see the application.js file for the jquery  -->
-<!-- <a href="#" id="clickbtn">Click Me</a>
-<div id="tag-box" class="tags">
-  <%= text_field_tag 'tags[]',nil, class: "add-tags" %>
-</div> -->
-<% end %>
+
+<div id="tag-box" >
+  <a href="#" id="add-tag-button">Add a Tag</a>
+</div>
+
 
 <div class="create_chronicle">
   <%=f.label :private, 'Make Private?' %>

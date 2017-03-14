@@ -9,12 +9,17 @@ class ChroniclesController < ApplicationController
   end
 
   def create
-
     @chronicle = Chronicle.create(chronicle_params)
     @chronicle.admin_id = current_account.id
     @chronicle.save
     if @chronicle
       Subscription.create(account_id: current_account.id, chronicle_id: @chronicle.id)
+      if !params[:chronicle][:tags].blank?
+        params[:chronicle][:tags].each do |tag|
+          @tag = Tag.find_or_create_by(name: tag.downcase)
+          @chronicle.tags << @tag
+        end
+      end
       redirect_to account_path(current_account)
     else
       render 'new'

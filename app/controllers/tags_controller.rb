@@ -1,8 +1,11 @@
 class TagsController < ApplicationController
 
   def create
-    @tag = Tag.create(name: params[:tag_name])
-    ChronicleTag.create(chronicle_id: , tag_id: @tag.id)
-    #redirect_to(:back)
+    byebug
+    params[chronicle[tags]].each do |tag|
+      @tag = Tag.create(name: tag)
+      ChronicleTag.create(chronicle_id: parms[:chronicle_id], tag_id: @tag.id)
+    end
+    redirect_to(:back)
   end
 end
