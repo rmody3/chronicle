@@ -1,43 +1,42 @@
 
 	<ul>
 		<div class="articleSearchResults">
-		<% @search["response"]["results"].each do |article| %>		
-				<li>
-					<div class="articleThumbnails">
-					<% if article["fields"]["thumbnail"].blank?%>
-						<%= image_tag('article_default', size: "100x60") %>
-					<% else %>
-						<%= image_tag(article["fields"]["thumbnail"], size: "100x60") %>
+
+		<% search["response"]["results"].each do |article| %>		
+			<li>
+				<div class="articleThumbnails">
+				<% if article["fields"]["thumbnail"].blank?%>
+					<%= image_tag('article_default', size: "100x60") %>
+				<% else %>
+					<%= image_tag(article["fields"]["thumbnail"], size: "100x60") %>
+				<% end %>
+				</div>
+
+				<%= link_to "#{article["webTitle"]}", article["webUrl"], target: :_blank %><br>
+				
+				<div class="articleSnippets">
+				<% if article["fields"]["trailText"].blank? %>
+					<%= "Sorry no snippets for this article" %>
+				<% else %>
+					<%= "#{article["fields"]["trailText"].split(" ")[0...10].join(" ")}..." %><br>
+				<% end %>
+				</div>
+
+				<div class="addArticleToChronicle">
+				<%= form_for @article_chronicle, url: add_article_path do |f|%>
+
+					<% if current_account %>
+						<%= f.collection_select :chronicle_id, Chronicle.where(admin_id: current_account.id ), :id, :name %>
+						<%= f.hidden_field :article_title, value: article["webTitle"] %>
+						<%= f.hidden_field :article_url, value: article["webUrl"] %>
+						<%= f.hidden_field :article_snippet, value: article["fields"]["trailText"] %>
+						<%= f.hidden_field :article_thumbnail, value: article["fields"]["thumbnail"] %>
+						<%= f.hidden_field :article_pub_date, value: article["webPublicationDate"] %>
+						<%= image_submit_tag("plus_sign.svg", width: "40", height: "40") %>
 					<% end %>
-					</div>
-
-					<%= link_to "#{article["webTitle"]}", article["webUrl"], target: :_blank %><br>
-					
-					<div class="articleSnippets">
-					<% if article["fields"]["trailText"].blank? %>
-						<%= "Sorry no snippets for this article" %>
-					<% else %>
-						<%= "#{article["fields"]["trailText"].split(" ")[0...10].join(" ")}..." %><br>
-					<% end %>
-					</div>
-
-					<div class="addArticleToChronicle">
-					<%= form_for @article_chronicle, url: add_article_path do |f|%>
-
-						<% if current_account %>
-							<%= f.collection_select :chronicle_id, Chronicle.where(admin_id: current_account.id ), :id, :name %>
-							<%= f.hidden_field :article_title, value: article["webTitle"] %>
-							<%= f.hidden_field :article_url, value: article["webUrl"] %>
-							<%= f.hidden_field :article_snippet, value: article["fields"]["trailText"] %>
-							<%= f.hidden_field :article_thumbnail, value: article["fields"]["thumbnail"] %>
-							<%= f.hidden_field :article_pub_date, value: article["webPublicationDate"] %>
-							<%= image_submit_tag("plus_sign.svg", width: "40", height: "40") %>
-						<% end %>
-
-					<% end %>
-					</div>
-
-				</li>
-			</div>
+				<% end %>
+				</div>
+			</li>
 		<% end %>
-	</ul>
+	</div>
+</ul>

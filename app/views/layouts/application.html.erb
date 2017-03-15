@@ -6,10 +6,9 @@
     <script src="/assets/jquery.js" type="text/javascript"></script>
     <script src="/assets/jquery_ujs.js" type="text/javascript"></script>
     <%= javascript_include_tag "owl.carousel" %>
-    <%= stylesheet_link_tag "normalize.css" %>
-    <%= stylesheet_link_tag "owl.carousel.css" %>
-    <%= stylesheet_link_tag "owl.theme.css" %>
-    <%= stylesheet_link_tag "owl.theme.default.css" %>
+
+    <%= stylesheet_link_tag "application", media: "all" %>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <%= stylesheet_link_tag "main.css" %>
     <%= favicon_link_tag "chronicle_logo_favicon.ico" %>
@@ -71,6 +70,25 @@
           </li>
         </ul>
       </div>
+
+
+    <%= yield %>
+
+    <div>
+    </div>
+    <footer>
+    <div class="social-icon">
+     <ul>
+      <li>
+        <a class = "zocial-twitter" href="http://twitter.com/maximeingorn"></a>
+        <a class = "zocial-facebook" href="http://facebook.com/max.eingorn"></a>
+        <a class = "zocial-github" href="https://github.com/meingorn"></a>
+        <a class = "zocial-linkedin" href="https://www.linkedin.com/in/maximeingorn"></a>
+        </li>
+      </ul>
+    </div>
+    <p>&copy; 2017 Chronicle</p>
+
       <p>&copy; 2017 Chronicle</p>
       <script>
         $(document).ready(function(){
@@ -91,6 +109,7 @@
           });
         });
       </script>
+
     </footer>
   </body>
 </html>

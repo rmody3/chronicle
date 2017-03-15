@@ -32,7 +32,9 @@ class ChronicleVotesController < ApplicationController
 			end
 		end
 		@chronicle.save
-		redirect_to chronicle_path(@chronicle)		
+
+		redirect_to chronicle_path(@chronicle)
+
 	end
 
 	private

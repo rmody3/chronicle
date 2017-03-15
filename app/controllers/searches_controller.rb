@@ -10,8 +10,14 @@ class SearchesController < ApplicationController
 			render "searches/chronicles/index"
 
 		elsif params[:commit] == "Articles"
+			@search_pagesize = article_params[:page_size]
 			@search_term = article_params[:search_term]
-			@search = GuardianAPI.new.query(article_params)
+			@search = GuardianAPI.new(search_term: article_params[:search_term], page_size: article_params[:page_size], from_date: article_params[:from_date], to_date: article_params[:to_date], order_by: article_params[:order_by], search_term: article_params[:search_term])
+			@search_page_1 = @search.query(article_params)
+			@search_page_2 = add_more_articles(@search)
+			@search_page_3 = add_more_articles(@search)
+			@search_page_4 = add_more_articles(@search)
+			@search_page_5 = add_more_articles(@search)
 			render "searches/articles/index"
 		else
 			flash[:message] = "something went wrong"
@@ -25,6 +31,11 @@ class SearchesController < ApplicationController
 
 	def chronicle_params
 		params.require(:search).permit(:search_term)
+	end
+
+	def add_more_articles(search_instance)
+		search_instance.update_page
+		search_instance.query(article_params)
 	end
 
 
