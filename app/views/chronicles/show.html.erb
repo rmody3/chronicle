@@ -7,40 +7,36 @@
       <%end%>
   </h5>
 <h5>Browse all <%= link_to "chronicles", chronicles_path %></h5>
-  <div class="tags">
-    <% unless @chronicle.tags.blank? %>
-      <% @chronicle.tags.each do |tag|%>
-        <%=link_to "##{tag.name}", searches_path("search[search_term]": tag.name, commit: "Chronicles")%>
-      <% end %>
+<div class="tags">
+  <% unless @chronicle.tags.blank? %>
+    <% @chronicle.tags.each do |tag|%>
+      <%=link_to "##{tag.name}", searches_path("search[search_term]": tag.name, commit: "Chronicles")%>
     <% end %>
-  </div>
-  <div class="wrapper">
-  <h3><%= @chronicle.upvotes %></h3>
-  <%= form_for @chronicle_vote do |f| %>
-  	<%= f.hidden_field :upvote, value: true %>
-  	<%= f.hidden_field :chronicle_id, value: @chronicle.id %>
-  	<%= image_submit_tag('upvote.svg', width: "60", height: "60") %>
   <% end %>
-  <h3><%= @chronicle.downvotes %></h3>
-  <div class="upvote-downvote">
-    <%= form_for @chronicle_vote do |f| %>
-    	<%= f.hidden_field :downvote, value: true %>
-    	<%= f.hidden_field :chronicle_id, value: @chronicle.id %>
-    	<%= image_submit_tag('downvote.svg', width: "60", height: "60") %>
-    <% end %>
-  </div>
-  <div class="owl-carousel">
-    <% @chronicle.articles.each do |article| %>
-      <div class="item">
-        <% if article.pic_url.blank? %>
-          <%= image_tag("article_default", size: "100x60") %>
-        <% else %>
-          <%= image_tag(article.pic_url, size: "100x60") %>
-        <% end %>
-        <%= link_to article.title, article.url %>
-      </div>
-    <% end %>
-  </div>
+</div>
+<h3><%= @chronicle.upvotes %></h3>
+<%= form_for @chronicle_vote do |f| %>
+	<%= f.hidden_field :upvote, value: true %>
+	<%= f.hidden_field :chronicle_id, value: @chronicle.id %>
+	<%= image_submit_tag('upvote.svg', width: "60", height: "60") %>
+<% end %><br />
+<h3><%= @chronicle.downvotes %></h3>
+<%= form_for @chronicle_vote do |f| %>
+	<%= f.hidden_field :downvote, value: true %>
+	<%= f.hidden_field :chronicle_id, value: @chronicle.id %>
+	<%= image_submit_tag('downvote.svg', width: "60", height: "60") %>
+<% end %><br />
+<div class="owl-carousel">
+  <% @chronicle.articles.each do |article| %>
+    <div class="item" style="width:200px; height:220px; background-color: rgba(11, 57, 84, 0.2); padding:5px; border-style: outset;">
+      <% if article.pic_url.blank? %>
+        <%= image_tag("article_default", size: "200x120") %>
+      <% else %>
+        <%= image_tag(article.pic_url, size: "200x120") %>
+      <% end %>
+      <%= link_to article.title, article.url %>
+    </div>
+  <% end %>
 </div>
 <br>
 <%= render "comments/new_comments" %><br />
@@ -48,19 +44,9 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $('.owl-carousel').owlCarousel({
-    margin:10,
-    nav:true,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:3
-        },
-        1000:{
-            items:5
-        }
-      }
-    })
+      margin:10,
+      nav:true,
+      autoWidth:true
+      })
   })
 </script>
