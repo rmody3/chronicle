@@ -19,8 +19,8 @@
 
 	    <% unless @chronicle.tags.blank? %>
 		    <% @chronicle.tags.each do |tag| %>
-			    	<%= tag.name %>
-    				<%= button_to "-", {controller: :tags, action: 'destroy', id: tag.id }, params: {chornicle_id: @chronicle.id, tag_id: tag.id }, method: :delete %>
+			    	<%= "##{tag.name}" %>
+    				<%= link_to "-", {controller: :tags, action: 'destroy', id: tag.id }, params: {chornicle_id: @chronicle.id, tag_id: tag.id }, method: :delete %>
 
 		    <% end %>
 	    <% end %>
