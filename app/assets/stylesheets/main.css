@@ -39,7 +39,7 @@ nav {
   text-align: center;
   padding: 10px 0;
   margin: 20px 0 0;
-  background: #000;
+  background: #0B3954;
 }
 
 nav ul {
@@ -109,7 +109,7 @@ body  {
   width: 100%; /* for IE 6 */
 }
 
-#articleInfo {
+.articleInfo {
   position: absolute;;
   bottom: 10%;
   left: 0;
