@@ -1,26 +1,18 @@
 <h1> Welcome to Chronicle</h1>
-
-<h1> Chronicle: get the whole story</h1>
-<h4> Make a new chronicle to track a story over time </h4>
+<h1> Get the whole story: Make a new chronicle to track a topic over time</h1>
 
 <% unless current_account %>
   <%= render "login"%>
 <% end %>
 
-<div class="jumbotron jumbotron-fluid">
-  <h3> Today's Trending Chronicles(add sideways scroll)</h3>
+  <h3> Today's Trending Chronicles</h3>
     <div class="trending-chronicles">
       <% @chronicle_match[0...5].each do |chron| %>
     	<%= link_to chron.name %>
     	<%= link_to image_tag('books.svg', size: '100x100'), chron.name %>
-  </div>
+    </div>
   	<br>
-
-  	<% chron.articles.each do |article| %>
-  		<%= link_to image_tag(article.pic_url, size: '80x80'), article.url %>
-  		<%= link_to article.title, article.url %>
-  	<% end %>
-
+    <%= render partial: "chronicles/chronicle_carousel", locals: {chronicle: chron} %>
   	<% if current_account %>
   		<% unless Subscription.find_by(chronicle_id: chron.id, account_id: current_account.id)  %>
   			<%= button_to('+', subscriptions_path, method: :post, params: {chronicle_id: chron.id})%>
@@ -28,4 +20,3 @@
   	<% end %>
   	<br>
   <% end %>
-</div>
