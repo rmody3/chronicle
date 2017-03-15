@@ -39,7 +39,10 @@ class ChroniclesController < ApplicationController
   end
 
   def update
-    
+    byebug
+    @chronicle = Chronicle.find(params[:id])
+    @chronicle.update(chronicle_params)
+    redirect_to chronicle_path(@chronicle)
   end
 
   private

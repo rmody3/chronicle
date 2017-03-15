@@ -1,5 +1,6 @@
 class ChronicleVotesController < ApplicationController
 	def create
+<<<<<<< Updated upstream
 		@account = Account.find(current_account.id)
 		@chronicle = Chronicle.find(chronicle_vote_params[:chronicle_id])
 
@@ -13,7 +14,7 @@ class ChronicleVotesController < ApplicationController
 					@chronicle_vote.upvote = false
 				end
 				# @chronicle_vote.check_and_reset_votes
-				# uncomment the above line if we want to show sum of upvotes and downvotes
+				# unchronicle the above line if we want to show sum of upvotes and downvotes
 				@chronicle_vote.save
 			end
 		elsif chronicle_vote_params[:upvote]
@@ -33,6 +34,9 @@ class ChronicleVotesController < ApplicationController
 		end
 		@chronicle.save
 		redirect_to chronicle_path(@chronicle)
+=======
+		
+>>>>>>> Stashed changes
 	end
 
 	private
