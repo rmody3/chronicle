@@ -1,6 +1,5 @@
 class ChronicleVotesController < ApplicationController
 	def create
-<<<<<<< Updated upstream
 		@account = Account.find(current_account.id)
 		@chronicle = Chronicle.find(chronicle_vote_params[:chronicle_id])
 
@@ -22,7 +21,7 @@ class ChronicleVotesController < ApplicationController
 				@chronicle_vote = ChronicleVote.find_or_create_by(account_id: @account.id, chronicle_id: @chronicle.id)
 				@chronicle_vote.upvote = true
 				@chronicle.upvotes += 1
-				
+
 				if @chronicle_vote.downvote == true
 					@chronicle.downvotes -= 1
 					@chronicle_vote.downvote = false
@@ -33,10 +32,7 @@ class ChronicleVotesController < ApplicationController
 			end
 		end
 		@chronicle.save
-		redirect_to chronicle_path(@chronicle)
-=======
-		
->>>>>>> Stashed changes
+		redirect_to chronicle_path(@chronicle)		
 	end
 
 	private

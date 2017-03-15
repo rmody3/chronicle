@@ -87,7 +87,12 @@ ul {
 
 /* Chronicles */
 
-
+.upvote-downvote {
+  display:block;
+  max-width: 15em;
+  margin: 10em auto 40px;
+  border-radius: 50em;
+}
 
 /* Account */
 

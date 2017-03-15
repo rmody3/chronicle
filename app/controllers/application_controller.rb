@@ -9,9 +9,6 @@ class ApplicationController < ActionController::Base
 
   def require_login
       redirect_to '/' if !logged_in?
-
-    #so that we can just use a before_action and then it will check before any page and redirect to login scree if not ready
-
   end
 
   def current_account
