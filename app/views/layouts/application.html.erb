@@ -24,12 +24,12 @@
       });
     </script>
 
-      <div>
-        <%= link_to image_tag('chronicle_logo_vector.svg', size: '40x40'), '/' %>
+      <div class="header">
+        <div class="logo"><%= link_to image_tag('chronicle_logo_vector.svg', size: '40x40'), '/' %></div>
 
         <% if logged_in? %>
-          <%= link_to "Log out", logout_path, method: :delete %>
-          <%= link_to "My Profile", account_path(current_account) %>
+          <h4><%= link_to "Log out", logout_path, method: :delete %></h4>
+          <h4><%= link_to "My Profile", account_path(current_account) %></h4>
         <% end %>
 
         <%= form_tag(searches_path, method: :get) do  %>
@@ -53,5 +53,18 @@
     <%= yield %>
     <div>
     </div>
+    <footer>
+    <div class="social-icon">
+     <ul>
+      <li>
+        <a class = "zocial-twitter" href="http://twitter.com/maximeingorn"></a>
+        <a class = "zocial-facebook" href="http://facebook.com/max.eingorn"></a>
+        <a class = "zocial-github" href="https://github.com/meingorn"></a>
+        <a class = "zocial-linkedin" href="https://www.linkedin.com/in/maximeingorn"></a>
+        </li>
+      </ul>
+    </div>
+    <p>&copy; 2017 Chronicle</p>
+    </footer>
   </body>
 </html>

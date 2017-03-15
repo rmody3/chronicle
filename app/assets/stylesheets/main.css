@@ -1,57 +1,13 @@
-
-/* General */
-
-
-/* Articles */
-
-
-
-/* Chronicles */
-
-
-
-/* Account */
-
-
-
-/* Responsive */
-
-@import url(http://weloveiconfonts.com/api/?family=zocial);
-
 /* zocial */
 [class*="zocial-"]:before {
   font-family: "zocial", sans-serif;
 }
+@import url(http://weloveiconfonts.com/api/?family=zocial);
 
-a {
-  text-decoration: none;
-}
+/* Header */
 
-img {
-  max-width: 100%;
-}
-
-body  {
-  font-family: "Open Sans", sans-serif;
-}
-
-.wrapper {
-  max-width: 940px;
-  margin: 0 auto;
-  padding: 0 5%;
-  background: white;
-}
-
-h3 {
-  margin: 0 0 1em 0;
-}
-
-/*****************
-Heading
-**************/
-
-header {
-  float:left;
+.header {
+  float:center;
   margin: 0 0 30px 0;
   padding: 5px 0 0 0;
   width: 100%;
@@ -66,10 +22,11 @@ header {
   max-height: 30px;
   max-width: 30px;
 }
-
-h1, h2 {
+/* General */
+h1, h2, h3, li {
   color: #000;
   text-align: center;
+
 }
 
 h1 {
@@ -122,6 +79,49 @@ nav a.selected, nav a:hover {
 ul {
   list-style: none
 }
+
+
+/* Articles */
+
+
+
+/* Chronicles */
+
+
+
+/* Account */
+
+
+
+/* Responsive */
+
+
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+body  {
+  font-family: "Open Sans", sans-serif;
+}
+
+.wrapper {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 5%;
+  background: white;
+}
+
+h3 {
+  margin: 0 0 1em 0;
+}
+
+
+
 
 /**************************************
 FOOTER
@@ -264,42 +264,3 @@ Page: Portfolio
  .gallery li:nth-child(4n) {
   clear:left;
 }
-
-/**************************************
-Page: About
-**************************************/
-
-.profile-photo {
-  float: left;
-  margin: 0 5% 30em 0;
-  }
-
-}
-
-@media screen and (min-width: 660px) {
-
-/**************************************
-Page: Header
-**************************************/
-
-  nav {
-    background: none;
-    float: right;
-    font-size:1.125em;
-    text-align: right;
-    width: 45%;
-  }
-
-  h1 {
-    font-size: 2.5em;
-  }
-
-  h2 {
-    font-size: 0.825em;
-    margin-bottom: 20px;
-  }
-
-  header {
-    border-bottom: 5px solid #708090;
-    margin-bottom: 60px;
-  }
