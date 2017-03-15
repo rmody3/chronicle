@@ -1,33 +1,19 @@
-/* zocial */
-[class*="zocial-"]:before {
-  font-family: "zocial", sans-serif;
-}
-@import url(http://weloveiconfonts.com/api/?family=zocial);
 
-/* Header */
-
-.header {
-  float:center;
-  margin: 0 0 30px 0;
-  padding: 5px 0 0 0;
-  width: 100%;
-  background: #87cefa;
-  border-color: #708090;
-}
-
-.logo {
-  float: center;
-  margin-left: auto;
-  margin-right: auto;
-  max-height: 30px;
-  max-width: 30px;
-}
 /* General */
+.trending-chronicles {
+  display: inline-block;
+}
+
 h1, h2, h3, li {
   color: #000;
   text-align: center;
-
 }
+
+ul {
+  list-style: none
+}
+
+/* Header */
 
 h1 {
   font-family: 'Changa One', sans-serif;
@@ -37,16 +23,23 @@ h1 {
   line-height: 0.8em;
 }
 
-h2 {
-  font-size: 0.75em;
-  margin: -5px 0 0;
-  font-weight: normal;
+/* nav bar*/
+
+.row {
+  margin:auto;
+  display: inline-block;
+  margin-bottom: 0;
+  border-radius: 0;
+  width: 100%;
+  background: #0B3954;
+  border-color: #708090;
 }
 
 nav {
   text-align: center;
   padding: 10px 0;
   margin: 20px 0 0;
+  background: #000;
 }
 
 nav ul {
@@ -59,9 +52,12 @@ nav li {
   display: inline-block;
 }
 
-nav {
-  background: #000;
+nav img {
+  background-color: white;
+  border-radius: 10px;
+  border-top: 10px;
 }
+
 
 nav a{
   font-weight: 800;
@@ -76,14 +72,30 @@ nav a.selected, nav a:hover {
   color: #000080;
 }
 
-ul {
-  list-style: none
+/* search bar */
+.search-bar {
+  float:center;
+  margin: 0 0 30px 0;
+  padding: 5px 0 0 0;
+  margin-bottom: 0;
+  border-radius: 0;
+  width: 100%;
 }
 
+a {
+  text-decoration: none;
+}
 
-/* Articles */
+body  {
+  font-family: "Open Sans", sans-serif;
+}
 
-
+.wrapper {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 5%;
+  background: white;
+}
 
 /* Chronicles */
 .item {
@@ -110,40 +122,6 @@ ul {
 a.articleLink {
   color:white;
 }
-
-/* Account */
-
-
-
-/* Responsive */
-
-
-
-a {
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-}
-
-body  {
-  font-family: "Open Sans", sans-serif;
-}
-
-.wrapper {
-  max-width: 940px;
-  margin: 0 auto;
-  padding: 0 5%;
-  background: white;
-}
-
-h3 {
-  margin: 0 0 1em 0;
-}
-
-
-
 
 /**************************************
 FOOTER
@@ -187,102 +165,18 @@ Page:Portfolio
   color: #bdc3c7;
 }
 
-.gallery li a p {
-  margin: 0;
-  padding: 5%;
-  font-size: 0.75em;
-  color: #bdc3c7
-}
-
-/**************************************
-Page:About
-**************************************/
-
-.profile-photo {
-  display:block;
-  max-width: 15em;
-  margin: 10em auto 40px;
-  border-radius: 50em;
-}
-
-.about-main {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/**************************************
-Page:Contact
-**************************************/
-
-.contact-info {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 0.9em;
-}
-
-.contact-info a {
-  display: block;
-  min-height: 20px;
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
-  padding: 0 0 0 30px;
-  margin: 0 0 10px;
-}
-
-.contact-info li.phone a {
-  background-image: url('../img/phone.png');
-}
-
-.contact-info li.mail a {
-  background-image: url('../img/mail.png');
-}
-
-.contact-info li.twitter a {
-  background-image: url('../img/twitter.png');
-}
-
-/**************************************
-Colors
-**************************************/
-body {
-  background-color: #fff;
-  color: #999;
-}
-
-
-
 /**************************************
 responsive
 **************************************/
-@media screen and (min-width: 480px) {
-
-
-/**************************************
-Page:Two Column Layout
-**************************************/
-
-  .primary {
-   width:50%;
-   float:left;
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
   }
-
-  .secondary {
-    width: 40%;
-    float: right;
-  }
-
-
-/**************************************
-Page: Portfolio
-**************************************/
-
- .gallery li {
-    width: 28.33333333333%;
-
-  }
-
- .gallery li:nth-child(4n) {
-  clear:left;
+  .row.content {height:auto;}
 }
+/* zocial */
+[class*="zocial-"]:before {
+  font-family: "zocial", sans-serif;
+}
+@import url(http://weloveiconfonts.com/api/?family=zocial);
