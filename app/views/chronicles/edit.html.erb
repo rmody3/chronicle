@@ -16,6 +16,14 @@
 
 	  <div id="tag-box" >
 	    <a href="#" id="add-tag-button">Add a Tag</a>
+
+	    <% unless @chronicle.tags.blank? %>
+		    <% @chronicle.tags.each do |tag| %>
+			    	<%= tag.name %>
+    				<%= button_to "-", {controller: :tags, action: 'destroy', id: tag.id }, params: {chornicle_id: @chronicle.id, tag_id: tag.id }, method: :delete %>
+
+		    <% end %>
+	    <% end %>
 	  </div>
 
 		<div class="editChronicle">
@@ -28,5 +36,5 @@
 		</div>
 
 	<% end %>
-	
+
 <% end %>
