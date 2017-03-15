@@ -4,7 +4,7 @@
   display: inline-block;
 }
 
-h1, h2, h3, li {
+h1, h2, h3, h4, li {
   color: #000;
   text-align: center;
 }
@@ -123,6 +123,15 @@ a.articleLink {
   color:white;
 }
 
+.spacepic{
+    height: 400px;
+    background-image: url("homeBackground.png");
+    background-position: center center;
+    background-size: 100% 100%;
+    width: 100%;
+    padding-top: 10px;
+}
+
 /**************************************
 FOOTER
 **************************************/
@@ -148,22 +157,6 @@ footer {
   color: black;
 }
 
-/**************************************
-Page:Portfolio
-**************************************/
-
-.gallery {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.gallery li {
-  float: left;
-  width: 45%;
-  margin: 2.5%;
-  background-color: #f5f5f5;
-  color: #bdc3c7;
-}
 
 /**************************************
 responsive
@@ -175,8 +168,3 @@ responsive
   }
   .row.content {height:auto;}
 }
-/* zocial */
-[class*="zocial-"]:before {
-  font-family: "zocial", sans-serif;
-}
-@import url(http://weloveiconfonts.com/api/?family=zocial);
