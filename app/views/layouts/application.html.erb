@@ -25,7 +25,19 @@
       });
     </script>
 
-      <div class="header">
+    <script>
+      $(document).ready(function(){
+        $("#search_search_term").focus(function(){
+          $("#additionalSearchParams").show();
+        });
+        $("#search_search_term").blur(function(){
+          $("#additionalSearchParams").hide();
+        });
+      });
+    </script>
+
+
+      <div class="header" >
         <div class="logo"><%= link_to image_tag('chronicle_logo_vector.svg', size: '40x40'), '/' %></div>
 
         <% if logged_in? %>
@@ -35,20 +47,16 @@
 
         <%= form_tag(searches_path, method: :get) do  %>
         <%= search_field_tag name="search[search_term]", "", placeholder: "Search here" %>
-        # per page: <%= number_field_tag name="search[page_size]", 20, in: 20..50, step: 10 %>
-
-        From: <%= date_field_tag name="search[from_date]", Date.today-30.days %>
-
-        To: <%= date_field_tag name="search[to_date]", Date.today %>
-
-        Order By: relevance<%= radio_button_tag name="search[order_by]", "relevance" %>
-
-        newest<%= radio_button_tag name="search[order_by]", "newest" %>
-
-        oldest<%= radio_button_tag name="search[order_by]", "oldest" %>
-
         <%= submit_tag "Chronicles" %>
         <%= submit_tag "Articles" %>
+        <div id="additionalSearchParams" hidden>
+          # per page: <%= number_field_tag name="search[page_size]", 20, in: 20..50, step: 10 %>
+          From: <%= date_field_tag name="search[from_date]", Date.today-30.days %>
+          To: <%= date_field_tag name="search[to_date]", Date.today %>
+          Order By: relevance<%= radio_button_tag name="search[order_by]", "relevance" %>
+          newest<%= radio_button_tag name="search[order_by]", "newest" %>
+          oldest<%= radio_button_tag name="search[order_by]", "oldest" %>
+        </div>
         <% end %>
       </div>
     <%= yield %>
