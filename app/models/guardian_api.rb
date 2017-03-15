@@ -9,6 +9,10 @@ class GuardianAPI
 		API_PARTIAL_URL = "api-key=#{ENV['GUARDIAN_API_KEY']}"
 	end
 
+	def initialize(search_term:, page_size:, from_date:, to_date:, order_by:)
+		@current_page = 1
+	end
+
 	def query(params)
 		create_search_format(params)
 		request = HTTParty.get(Endpoints::SEARCH_URL+@search_format+Endpoints::API_PARTIAL_URL).to_json
@@ -25,7 +29,7 @@ class GuardianAPI
 			end
 
 		end
-		@search_format += "q=#{@search_term_formatted}&"
+		@search_format += "#{current_page_format}q=#{@search_term_formatted}&"
 	end
 
 	def current_page_format
