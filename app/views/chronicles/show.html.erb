@@ -9,9 +9,9 @@
 <h5>Browse all <%= link_to "chronicles", chronicles_path %></h5>
 
 <div class="tags">
-  <% if !@chronicle.tags.blank? %>
+  <% unless @chronicle.tags.blank? %>
     <% @chronicle.tags.each do |tag|%>
-      <%=link_to tag.name, searches_path( :"search[search_term]" => tag.name, :commit=>"Chronicles")%>
+      <%=link_to "##{tag.name}", searches_path("search[search_term]": tag.name, commit: "Chronicles")%>
     <% end %>
   <% end %>
 </div>
@@ -33,6 +33,7 @@
 
 <div class="owl-carousel">
 
+
   <% @chronicle.articles.each do |article| %>
     <div class="item">
       <% if article.pic_url.blank? %>
@@ -42,6 +43,7 @@
       <% end %>
       <%= link_to article.title, article.url %>
     </div>
+
 
   <% end %>
 </div>

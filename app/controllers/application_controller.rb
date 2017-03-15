@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   def index
     @account = Account.new
+    @chronicle_match = Chronicle.all.sort_by {|chron| chron.downvotes - chron.upvotes }
   end
 
   def require_login

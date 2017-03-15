@@ -14,7 +14,7 @@ class ChronicleVotesController < ApplicationController
 					@chronicle_vote.upvote = false
 				end
 				# @chronicle_vote.check_and_reset_votes
-				# uncomment the above line if we want to show sum of upvotes and downvotes
+				# unchronicle the above line if we want to show sum of upvotes and downvotes
 				@chronicle_vote.save
 			end
 		elsif chronicle_vote_params[:upvote]
