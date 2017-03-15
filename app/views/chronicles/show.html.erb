@@ -11,7 +11,7 @@
 <div class="tags">
   <% unless @chronicle.tags.blank? %>
     <% @chronicle.tags.each do |tag|%>
-      <%=link_to "##{tag.name}", searches_path( "search[search_term]": tag.name, commit: "Chronicles")%>
+      <%=link_to "##{tag.name}", searches_path("search[search_term]": tag.name, commit: "Chronicles")%>
     <% end %>
   <% end %>
 </div>
@@ -36,7 +36,7 @@
 	<% if article.pic_url.blank? %>
 		<%= image_tag("article_default", size: "100x60") %>
 	<% else %>
-		<%= image_tag("article.pic_url", size: "100x60") %>
+		<%= image_tag(article.pic_url, size: "100x60") %>
 	<% end %>
 
 	<%= link_to article.title, article.url %>
