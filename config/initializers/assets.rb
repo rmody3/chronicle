@@ -6,6 +6,7 @@ Rails.application.config.assets.precompile += %w( normalize.css )
 Rails.application.config.assets.precompile += %w( owl.carousel.js )
 Rails.application.config.assets.precompile += %w( owl.carousel.css )
 Rails.application.config.assets.precompile += %w( owl.theme.css )
+Rails.application.config.assets.precompile += %w( main.css )
 
 
 # Add additional assets to the asset load path
