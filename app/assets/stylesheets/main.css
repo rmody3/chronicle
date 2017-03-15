@@ -86,8 +86,30 @@ ul {
 
 
 /* Chronicles */
+.item {
+  width:400px;
+  height:240px;
+  padding:2px;
+}
 
+.articleContainer {
+  position: relative;
+  width: 100%; /* for IE 6 */
+}
 
+#articleInfo {
+  position: absolute;;
+  bottom: 10%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  background-color: rgba(0,0,0,0.9);
+}
+
+a.articleLink {
+  color:white;
+}
 
 /* Account */
 
