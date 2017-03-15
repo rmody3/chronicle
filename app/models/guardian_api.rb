@@ -39,7 +39,7 @@ class GuardianAPI
 	end
 
 	def search_input_formatted(user_search_term)
-		@search_term_formatted = user_search_term.gsub(" ", "%20").gsub("&", "%26").gsub('"', "%22").gsub("@", "%40").gsub("#", "%23").gsub("$", "%24").gsub("%", "%25").gsub("^", "%5").gsub("=", "%3D").gsub("?", "%3F")
+		@search_term_formatted = user_search_term.gsub(" ", "AND%20").gsub("&", "%26").gsub('"', "%22").gsub("@", "%40").gsub("#", "%23").gsub("$", "%24").gsub("%", "%25").gsub("^", "%5").gsub("=", "%3D").gsub("?", "%3F")
 	end
 
 end

@@ -31,19 +31,32 @@
 	<%= image_submit_tag('downvote.svg', width: "60", height: "60") %>
 <% end %><br />
 
+<div class="owl-carousel">
 
-<% @chronicle.articles.each do |article| %>
-	<% if article.pic_url.blank? %>
-		<%= image_tag("article_default", size: "100x60") %>
-	<% else %>
-		<%= image_tag(article.pic_url, size: "100x60") %>
-	<% end %>
 
-	<%= link_to article.title, article.url %>
-	<br>
-<% end %>
+  <% @chronicle.articles.each do |article| %>
+    <div class="item" style="width:200px; height:220px; background-color: rgba(11, 57, 84, 0.2); padding:5px; border-style: outset;">
+      <% if article.pic_url.blank? %>
+        <%= image_tag("article_default", size: "200x120") %>
+      <% else %>
+        <%= image_tag(article.pic_url, size: "200x120") %>
+      <% end %>
+      <%= link_to article.title, article.url %>
+    </div>
+  <% end %>
+</div>
 
 <br>
 
 <%= render "comments/new_comments" %><br />
 <%= render "comments/comments" %><br />
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.owl-carousel').owlCarousel({
+      margin:10,
+      nav:true,
+      autoWidth:true
+      })
+  })
+</script>

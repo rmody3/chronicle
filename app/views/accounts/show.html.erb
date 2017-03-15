@@ -1,12 +1,19 @@
+
+<head>
+  <link type="text/css" rel="stylesheet" href="assets/stylesheets/chronicles.css">
+</head>
+
 <h1>Welcome, <%= @account.name %>!</h1>
 
 <h3><%= link_to "Create a new chronicle!", new_chronicle_path %> </h3>
 <h3><%= link_to "Click here", chronicles_path %> to browse all chronicles!</h3>
 
-<h2><%= @account.name %>'s Chronicles</h2>
-
-	<% if @mychronicles %>
+<h3><%= @account.name %>'s Chronicles</h3>
+  <ul>
+  	<% if @mychronicles %>
 	    <% @mychronicles.each do |c|%>
-	      <%= link_to c.name, chronicle_path(c) %><br>
+      <li> <%= link_to c.name, chronicle_path(c) %> </li>
+      <br>
 	    <% end %>
-	<% end %>
+  	<% end %>
+  </ul>
