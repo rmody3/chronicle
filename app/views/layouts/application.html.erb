@@ -9,60 +9,88 @@
     <%= stylesheet_link_tag "normalize.css" %>
     <%= stylesheet_link_tag "owl.carousel.css" %>
     <%= stylesheet_link_tag "owl.theme.css" %>
+    <%= stylesheet_link_tag "owl.theme.default.css" %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <%= stylesheet_link_tag "main.css" %>
     <%= favicon_link_tag "chronicle_logo_favicon.ico" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body>
-    <script>
-      $(document).ready(function(){
-        var count = 0;
-        $("#add-tag-button").click(function(){
-          count +=1;
-          $("#tag-box").append('<input id="tags_' + count + '" name="chronicle[tags][]' + '" type="text" />');
-        });
-      });
-    </script>
-    <div class="header">
-      <div class="logo"><%= link_to image_tag('chronicle_logo_vector.svg', size: '40x40'), '/' %>
-        <%= link_to "Chronicle: Get the Whole Story", '/' %>
-      </div>
-      <% if logged_in? %>
-        <h4><%= link_to "Log out", logout_path, method: :delete %></h4>
-        <h4><%= link_to "My Profile", account_path(current_account) %></h4>
-      <% end %>
-        <h4><%= link_to "Browse Chronicles", chronicles_path%></h4>
-        <h4><%= link_to "New Chronicle", new_chronicle_path%></h4>
-      </div>
-      <div class="search-bar">
+    <body>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <div class="logo">
+              <img> <%= link_to image_tag('chronicle_logo_vector.svg', size: '50x50'), '/' %> </img>
+              <a> <%= link_to "Chronicle: Get the Whole Story", '/' %> <a>
+              </div>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                  <% if logged_in? %>
+                    <a><%= link_to "Log out", logout_path, method: :delete %></a>
+                    <a><%= link_to "My Profile", account_path(current_account) %></a>
+                    <a href="/chronicles">Browse Chronicles</a>
+                    <a href="/chronicles/new">New Chronicle</a>
+                  <% end %>
+                </a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
         <%= form_tag(searches_path, method: :get) do  %>
-        <%= search_field_tag name="search[search_term]", "", placeholder: "Search here" %>
-          # per page: <%= number_field_tag name="search[page_size]", 20, in: 20..50, step: 10 %>
-          From: <%= date_field_tag name="search[from_date]", Date.today-30.days %>
-          To: <%= date_field_tag name="search[to_date]", Date.today %>
-          Order By: relevance<%= radio_button_tag name="search[order_by]", "relevance" %>
-          newest<%= radio_button_tag name="search[order_by]", "newest" %>
-          oldest<%= radio_button_tag name="search[order_by]", "oldest" %>
-        <%= submit_tag "Chronicles" %>
-        <%= submit_tag "Articles" %>
+          <%= search_field_tag name="search[search_term]", "", placeholder: "Search here" %>
+          <%= submit_tag "Chronicles" %>
+          <%= submit_tag "Articles" %>
+          <div id="additionalSearchParams" hidden>
+            # per page: <%= number_field_tag name="search[page_size]", 20, in: 20..50, step: 10 %>
+            From: <%= date_field_tag name="search[from_date]", Date.today-30.days %>
+            To: <%= date_field_tag name="search[to_date]", Date.today %>
+            Order By: relevance<%= radio_button_tag name="search[order_by]", "relevance" %>
+            newest<%= radio_button_tag name="search[order_by]", "newest" %>
+            oldest<%= radio_button_tag name="search[order_by]", "oldest" %>
+          </div>
         <% end %>
+        </div>
+          <%= yield %>
+      <footer>
+      <div class="social-icon">
+       <ul>
+        <li>
+          <a class = "zocial-twitter" href="http://twitter.com/maximeingorn"></a>
+          <a class = "zocial-facebook" href="http://facebook.com/max.eingorn"></a>
+          <a class = "zocial-github" href="https://github.com/meingorn"></a>
+          <a class = "zocial-linkedin" href="https://www.linkedin.com/in/maximeingorn"></a>
+          </li>
+        </ul>
       </div>
-    <%= yield %>
-    <div>
-    </div>
-    <footer>
-    <div class="social-icon">
-     <ul>
-      <li>
-        <a class = "zocial-twitter" href="http://twitter.com/maximeingorn"></a>
-        <a class = "zocial-facebook" href="http://facebook.com/max.eingorn"></a>
-        <a class = "zocial-github" href="https://github.com/meingorn"></a>
-        <a class = "zocial-linkedin" href="https://www.linkedin.com/in/maximeingorn"></a>
-        </li>
-      </ul>
-    </div>
-    <p>&copy; 2017 Chronicle</p>
+      <p>&copy; 2017 Chronicle</p>
+      <script>
+        $(document).ready(function(){
+          $("#search_search_term").focus(function(){
+            $("#additionalSearchParams").show();
+          });
+          $("#search_search_term").blur(function(){
+            $("#additionalSearchParams").hide();
+          });
+        });
+      </script>
+      <script>
+        $(document).ready(function(){
+          var count = 0;
+          $("#add-tag-button").click(function(){
+            count +=1;
+            $("#tag-box").append('<input id="tags_' + count + '" name="chronicle[tags][]' + '" type="text" />');
+          });
+        });
+      </script>
     </footer>
   </body>
 </html>
