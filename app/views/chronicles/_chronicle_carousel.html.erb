@@ -7,8 +7,29 @@
         <% else %>
           <%= image_tag(article.pic_url, size: "400x240") %>
         <% end %>
-        <strong id="articleInfo"><%= link_to article.title, article.url, target: :_blank, class: "articleLink"%><br /><%= article.date %></strong>
+        <strong class="articleInfo"><%= link_to article.title, article.url, target: :_blank, class: "articleLink"%><br /><%= article.date %></strong>
       </div>
     </div>
   <% end %>
 </div>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.owl-carousel').owlCarousel({
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+      }
+    })
+  })
+</script>
