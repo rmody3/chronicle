@@ -132,6 +132,7 @@ a {
 
 /* Chronicles */
 
+
 .center-chron {
   position: block;
   text-align: center;
@@ -139,13 +140,13 @@ a {
 .votes {
   position: inline-block;
   float: left;
-  font-size: 200%;
+  font-size: 20px;
 }
 
 .comment_votes {
   position: inline-block;
   float: left;
-  font-size: 150%;
+  font-size: 20px;
 }
 
 
