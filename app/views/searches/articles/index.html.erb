@@ -10,18 +10,6 @@
 		$("#page_3_button").click(function() {
 	    $("#search_page3").removeClass("hidden");
 	    $("#page_3_button").hide();
-	    $("#page_4_button").removeClass("hidden");
-		});
-
-    $("#page_4_button").click(function() {
-	    $("#search_page4").removeClass("hidden");
-	    $("#page_4_button").hide();
-	    $("#page_5_button").removeClass("hidden");
-		});
-
-    $("#page_5_button").click(function() {
-	    $("#search_page5").removeClass("hidden");
-	    $("#page_5_button").hide();
 	    $("#snarkyMessage").removeClass("hidden");
 		});
 
@@ -43,16 +31,6 @@
 <%= button_tag("See #{@search_pagesize} More Articles", id: "page_3_button", class: "hidden") %><br>
 <div id="search_page3" class="hidden">
 	<%= render partial: 'shared/article_index', locals: {search: @search_page_3 } unless @search_page_3["response"]["status"] == "error" %>	
-</div>
-
-<%= button_tag("See #{@search_pagesize} More Articles", id: "page_4_button", class: "hidden") %><br>
-<div id="search_page4" class="hidden">
-	<%= render partial: 'shared/article_index', locals: {search: @search_page_4 } unless @search_page_4["response"]["status"] == "error" %>
-</div>
-
-<%= button_tag("See #{@search_pagesize} More Articles", id: "page_5_button", class: "hidden") %><br>
-<div id="search_page5" class="hidden">
-	<%= render partial: 'shared/article_index', locals: {search: @search_page_5 } unless @search_page_5["response"]["status"] == "error" %>
 </div>
 
 <div id="snarkyMessage" class="hidden">
