@@ -3,9 +3,9 @@
     <div class="item">
       <div class="articleContainer">
         <% if article.pic_url.blank? %>
-          <%= image_tag("article_default", size: "400x240") %>
+          <%= image_tag("article_default", size: "500x240") %>
         <% else %>
-          <%= image_tag(article.pic_url, size: "400x240") %>
+          <%= image_tag(article.pic_url, size: "500x240") %>
         <% end %>
         <strong class="articleInfo"><%= link_to article.title, article.url, target: :_blank, class: "articleLink"%><br /><%= article.date %></strong>
       </div>
@@ -20,14 +20,14 @@
     margin:5,
     nav:true,
     responsive:{
-        0:{
+        250:{
             items:1
         },
-        600:{
-            items:3
+        400:{
+            items:2
         },
         1000:{
-            items:5
+            items:4
         }
       }
     })
