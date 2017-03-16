@@ -58,6 +58,7 @@ class ChroniclesController < ApplicationController
   def destroy
     @chronicle= Chronicle.find(params[:id])
     @chronicle.destroy
+    redirect_to account_path(current_account)
   end
 
   private
