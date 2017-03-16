@@ -9,8 +9,8 @@ class TagsController < ApplicationController
   end
 
   def destroy
-  	byebug
-  	@chronicle_tag = ChronicleTag.find_by(chronicle_id: params[:chronicle_id], tag_id: params[:tag_id])
+  	@chronicle_tag = ChronicleTag.find_by(chronicle_id: params[:chronicle_id], tag_id: params[:id])
   	@chronicle_tag.destroy
+    redirect_to (:back)
   end
 end

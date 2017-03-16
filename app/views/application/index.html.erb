@@ -9,7 +9,7 @@
   <h3> Today's Trending Chronicles</h3>
     <div class="trending-chronicles">
       <% @chronicle_match[0...5].each do |chron| %>
-    	<%= link_to chron.name %>
+    	<%= link_to chron.name, chronicle_path(chron) %>
     	<%= link_to image_tag('books.svg', size: '100x100'), chron.name %>
     </div>
   	<br>

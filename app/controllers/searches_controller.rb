@@ -20,7 +20,7 @@ class SearchesController < ApplicationController
 			@search_page_5 = add_more_articles(@search)
 			render "searches/articles/index"
 		else
-			flash[:message] = "something went wrong"
+			flash[:notice] = "something went wrong"
 		end
 	end
 

@@ -58,6 +58,9 @@
           </div>
         <% end %>
         </div>
+        <% if flash[:notice] %>
+          <p style="color: green;"><%= flash[:notice] %></p>
+        <% end %>
           <%= yield %>
       <footer>
       <div class="social-icon">
@@ -70,24 +73,6 @@
           </li>
         </ul>
       </div>
-
-
-    <%= yield %>
-
-    <div>
-    </div>
-    <footer>
-    <div class="social-icon">
-     <ul>
-      <li>
-        <a class = "zocial-twitter" href="http://twitter.com/maximeingorn"></a>
-        <a class = "zocial-facebook" href="http://facebook.com/max.eingorn"></a>
-        <a class = "zocial-github" href="https://github.com/meingorn"></a>
-        <a class = "zocial-linkedin" href="https://www.linkedin.com/in/maximeingorn"></a>
-        </li>
-      </ul>
-    </div>
-    <p>&copy; 2017 Chronicle</p>
 
       <p>&copy; 2017 Chronicle</p>
       <script>

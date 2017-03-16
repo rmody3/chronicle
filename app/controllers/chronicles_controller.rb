@@ -36,13 +36,28 @@ class ChroniclesController < ApplicationController
 
   def edit
     @chronicle = Chronicle.find(params[:id])
+    if @chronicle.admin_id != current_account.id
+      flash[:notice] = "You are not an admin of this chronicle"
+      redirect_to account_path(current_account)
+    end
   end
 
   def update
-    byebug
+
     @chronicle = Chronicle.find(params[:id])
     @chronicle.update(chronicle_params)
+    if !params[:chronicle][:tags].blank?
+      params[:chronicle][:tags].each do |tag|
+        @tag = Tag.find_or_create_by(name: tag.downcase)
+        @chronicle.tags << @tag
+      end
+    end
     redirect_to chronicle_path(@chronicle)
+  end
+
+  def destroy
+    @chronicle= Chronicle.find(params[:id])
+    @chronicle.destroy
   end
 
   private

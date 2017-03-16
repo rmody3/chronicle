@@ -1,7 +1,5 @@
 <h1>Edit <%= @chronicle.name %></h1>
 
-<% if @chronicle.admin_id == current_account.id %>
-
 	<%= form_for @chronicle do |f| %>
 
 		<div class="editChronicle">
@@ -19,8 +17,9 @@
 
 	    <% unless @chronicle.tags.blank? %>
 		    <% @chronicle.tags.each do |tag| %>
+						<br><%= link_to "remove", tag_path(tag, chronicle_id: @chronicle.id), method: :delete%>
 			    	<%= "##{tag.name}" %>
-    				<%= link_to "-", {controller: :tags, action: 'destroy', id: tag.id }, params: {chornicle_id: @chronicle.id, tag_id: tag.id }, method: :delete %>
+
 
 		    <% end %>
 	    <% end %>
@@ -31,10 +30,9 @@
 		  <%= f.check_box :private, checked_value: @chronicle.private %>
 		</div>
 
-		<div class="editChronicle">
+		<div>
 		  <%= f.submit %>
+			<%= button_to('Delete this Chronicle', chronicle_path(@chronicle), method: :delete)%>
 		</div>
-
-	<% end %>
 
 <% end %>
