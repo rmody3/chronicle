@@ -1,6 +1,6 @@
 <%= form_for @comment, action: comments_path do |f| %>
   <%= f.label "Comments:" %>
-  <%= f.text_area :content %>
+  <%= f.text_area :content, cols: "40", rows: "8" %>
   <%= f.hidden_field :chronicle_id, value: @chronicle.id %>
   <%= f.submit %><br />
 <% end %>

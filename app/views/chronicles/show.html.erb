@@ -1,29 +1,30 @@
+<div class="center-chron">
+  <h1><%= @chronicle.name %></h1>
+  <h3><%= @chronicle.description %></h3>
 
-<h1><%= @chronicle.name %></h1>
-<h3><%= @chronicle.description %></h3>
-
-<% if @chronicle.admin_id == current_account.id %>
-  <%= button_to('Edit this Chronicle', edit_chronicle_path(@chronicle), method: :get)%>
-<% elsif Subscription.find_by(account_id: current_account.id, chronicle_id: @chronicle.id) %>
-  <%= button_to('Remove this Chronicle', subscription_path(Subscription.find_by(account_id: current_account.id, chronicle_id: @chronicle.id)), method: :delete)%>
-<% else %>
-  <%= button_to('Add this Chronicle', subscriptions_path, method: :post, params: {chronicle_id: @chronicle.id})%>
-<% end %>
-
-  <h5><%  if @chronicle.private == true%>
-      	<%= "this chronicle is private"  %>
-      <% else %>
-      	<%= "this chronicle is public" %>
-      <%end%>
-  </h5>
-<h5>Browse all <%= link_to "chronicles", chronicles_path %></h5>
-
-<div class="tags">
-  <% unless @chronicle.tags.blank? %>
-    <% @chronicle.tags.each do |tag|%>
-      <%=link_to "##{tag.name}", searches_path("search[search_term]": tag.name, commit: "Chronicles")%>
-    <% end %>
+  <% if @chronicle.admin_id == current_account.id %>
+    <%= button_to('Edit this Chronicle', edit_chronicle_path(@chronicle), method: :get)%>
+  <% elsif Subscription.find_by(account_id: current_account.id, chronicle_id: @chronicle.id) %>
+    <%= button_to('Remove this Chronicle', subscription_path(Subscription.find_by(account_id: current_account.id, chronicle_id: @chronicle.id)), method: :delete)%>
+  <% else %>
+    <%= button_to('Add this Chronicle', subscriptions_path, method: :post, params: {chronicle_id: @chronicle.id})%>
   <% end %>
+
+    <h5><%  if @chronicle.private == true%>
+        	<%= "this chronicle is private"  %>
+        <% else %>
+        	<%= "this chronicle is public" %>
+        <%end%>
+    </h5>
+  <h5>Browse all <%= link_to "chronicles", chronicles_path %></h5>
+
+  <div class="tags">
+    <% unless @chronicle.tags.blank? %>
+      <% @chronicle.tags.each do |tag|%>
+        <%=link_to "##{tag.name}", searches_path("search[search_term]": tag.name, commit: "Chronicles")%>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 <div class="votes">
@@ -48,8 +49,9 @@
 
 <br>
 
-<%= render "comments/new_comments" %><br />
-<%= render "comments/comments" %><br />
+  <%= render "comments/new_comments" %><br />
+
+  <%= render "comments/comments" %><br />
 
 <script type="text/javascript">
   $(document).ready(function(){

@@ -131,6 +131,10 @@ a {
 
 
 /* Chronicles */
+.center-chron {
+  position: block;
+  text-align: center;
+}
 .votes {
   position: inline-block;
   float: left;
