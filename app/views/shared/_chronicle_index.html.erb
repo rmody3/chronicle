@@ -3,7 +3,7 @@
 		<% @chronicle_match.each do |chronicle| %>
 			<ul>
 				<div class="chronicles">
-					
+
 					<% if current_account %>
 						<% unless Subscription.find_by(chronicle_id: chronicle.id, account_id: current_account.id)  %>
 							<%= button_to('+', subscriptions_path, method: :post, params: {chronicle_id: chronicle.id})%>
@@ -12,6 +12,7 @@
 
 					<%=link_to chronicle.name, chronicle_path(chronicle) %>
 					<%= chronicle.description %>
+					<%= render partial: "chronicles/chronicle_carousel", locals: {chronicle: chronicle} %>
 
 					<div class="tags">
 					  <% unless chronicle.tags.blank? %>
