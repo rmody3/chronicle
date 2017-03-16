@@ -27,23 +27,23 @@
   </div>
 </div>
 
-<div class="votes">
+
   <%= @chronicle.upvotes %>
   <%= form_for @chronicle_vote do |f| %>
   	<%= f.hidden_field :upvote, value: true %>
   	<%= f.hidden_field :chronicle_id, value: @chronicle.id %>
   	<%= image_submit_tag('upvote.svg', width: "60", height: "60") %>
   <% end %><br />
-</div>
 
-<div class="votes">
+
+
   <%= @chronicle.downvotes %>
   <%= form_for @chronicle_vote do |f| %>
     <%= f.hidden_field :downvote, value: true %>
     <%= f.hidden_field :chronicle_id, value: @chronicle.id %>
     <%= image_submit_tag('downvote.svg', width: "60", height: "60") %>
   <% end %><br />
-</div>
+
 
   <%= render partial: "chronicle_carousel", locals: {chronicle: @chronicle} %>
 
