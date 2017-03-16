@@ -35,10 +35,10 @@
               </ul>
               <ul class="nav navbar-nav navbar-right">
                   <% if logged_in? %>
-                    <a><%= link_to "Log out", logout_path, method: :delete %></a>
                     <a><%= link_to "My Profile", account_path(current_account) %></a>
                     <a href="/chronicles">Browse Chronicles</a>
                     <a href="/chronicles/new">New Chronicle</a>
+                    <a><%= link_to "Log out", logout_path, method: :delete %></a>
                   <% end %>
                 </a></li>
               </ul>
