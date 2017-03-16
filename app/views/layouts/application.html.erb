@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <script src="/assets/jquery.js" type="text/javascript"></script>
     <script src="/assets/jquery_ujs.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <%= javascript_include_tag "owl.carousel" %>
 
     <%= stylesheet_link_tag "application", media: "all" %>
@@ -26,7 +27,8 @@
                 <span class="icon-bar"></span>
               </button>
               <div class="logo">
-              <img> <%= link_to image_tag('chronicle_logo_vector.svg', size: '50x50'), '/' %> </img>
+                <a href="/" id="logo-nav"><div id="logo"></div></a>
+
               <a> <%= link_to "Chronicle: Get the Whole Story", '/' %> <a>
               </div>
             </div>
@@ -36,33 +38,42 @@
               <ul class="nav navbar-nav navbar-right">
                   <% if logged_in? %>
                     <a><%= link_to "My Profile", account_path(current_account) %></a>
-                    <a href="/chronicles">Browse Chronicles</a>
-                    <a href="/chronicles/new">New Chronicle</a>
+                    <a><%= link_to "Browse", chronicles_path %></a>
+                    <a><%= link_to "New", new_chronicle_path %></a>
                     <a><%= link_to "Log out", logout_path, method: :delete %></a>
                   <% end %>
                 </a></li>
               </ul>
             </div>
           </div>
-        </nav>
-        <%= form_tag(searches_path, method: :get) do  %>
-          <%= search_field_tag name="search[search_term]", "", placeholder: "Search here" %>
-          <%= submit_tag "Chronicles" %>
-          <%= submit_tag "Articles" %>
-          <div id="additionalSearchParams" hidden>
-            # per page: <%= number_field_tag name="search[page_size]", 20, in: 20..50, step: 10 %>
-            From: <%= date_field_tag name="search[from_date]", Date.today-30.days %>
-            To: <%= date_field_tag name="search[to_date]", Date.today %>
-            Order By: relevance<%= radio_button_tag name="search[order_by]", "relevance" %>
-            newest<%= radio_button_tag name="search[order_by]", "newest" %>
-            oldest<%= radio_button_tag name="search[order_by]", "oldest" %>
+
+          <div class="search-bar">
+            <%= form_tag(searches_path, method: :get) do  %>
+              <%= search_field_tag name="search[search_term]", "", placeholder: "Search here" %>
+              <%= submit_tag "Chronicles" %>
+              <%= submit_tag "Articles" %>
+              <div id="additionalSearchParams" hidden>
+                # per page: <%= number_field_tag name="search[page_size]", 20, in: 20..50, step: 10 %>
+                From: <%= date_field_tag name="search[from_date]", Date.today-30.days %>
+                To: <%= date_field_tag name="search[to_date]", Date.today %>
+                Order By: relevance<%= radio_button_tag name="search[order_by]", "relevance" %>
+                newest<%= radio_button_tag name="search[order_by]", "newest" %>
+                oldest<%= radio_button_tag name="search[order_by]", "oldest" %>
+              </div>
+            <% end %>
+            </div>
           </div>
-        <% end %>
-        </div>
+        </nav>
+
         <% if flash[:notice] %>
           <p style="color: green;"><%= flash[:notice] %></p>
         <% end %>
-          <%= yield %>
+
+
+          <div class="page-wrapper">
+            <%= yield %>
+          </div>
+
       <footer>
       <div class="social-icon">
        <ul>
