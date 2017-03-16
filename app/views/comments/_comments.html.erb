@@ -3,6 +3,7 @@
   <%= comment.created_at.strftime("%b %d %Y %k:%M") %>
   <%= comment.content %><br>
 
+<div class="comment_votes">
 	<%= comment.upvotes %>
 		<%= form_for @comment_vote do |f| %>
 			<%= f.hidden_field :upvote, value: true %>
@@ -10,7 +11,9 @@
 			<%= f.hidden_field :chronicle_id, value: comment.chronicle_id %>
 			<%= image_submit_tag('upvote.svg', width: "25", height: "25") %>
 		<% end %><br />
+</div>
 
+<div class="comment_votes">
  	<%= comment.downvotes %>
 		<%= form_for @comment_vote do |f| %>
 			<%= f.hidden_field :downvote, value: true %>
@@ -19,3 +22,4 @@
 			<%= image_submit_tag('downvote.svg', width: "25", height: "25") %>
 		<% end %>
 <% end %>
+</div>
