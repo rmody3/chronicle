@@ -1,11 +1,11 @@
 <h1> Welcome to Chronicle</h1>
-<h1> Get the Whole Story: Make a new chronicle to track a topic over time</h1>
-
+<h4> Get the Whole Story: Create a Chronicle to track a topic over time</h4>
 <% unless current_account %>
   <%= render "login"%>
 <% end %>
+<div class="spacepic"></div>
 
-<div class="jumbotron jumbotron-fluid">
+  <div class="jumbotron jumbotron-fluid">
   <h3> Today's Trending Chronicles</h3>
     <div class="trending-chronicles">
       <% @chronicle_match[0...5].each do |chron| %>
