@@ -1,76 +1,88 @@
 
 /* General */
-.trending-chronicles {
-  display: inline-block;
-}
 
-h1, h2, h3, h4, li {
+/*h1, h2, h3, h4, li {
   color: #000;
   text-align: center;
-}
+}*/
+
+/*h1 {
+  margin: 15px 0;
+  font-size: 1.75em;
+  font-weight: normal;
+  line-height: 0.8em;
+}*/
 
 ul {
   list-style: none
 }
 
-/* Header */
-
-h1 {
-  font-family: 'Changa One', sans-serif;
-  margin: 15px 0;
-  font-size: 1.75em;
-  font-weight: normal;
-  line-height: 0.8em;
+html {
+  background-color: #000000;
+  color: #F7F4F3;
+  font-family: 'Raleway', sans-serif;
+  text-decoration: none;
 }
+
+
 
 /* nav bar*/
 
-.row {
-  margin:auto;
-  display: inline-block;
-  margin-bottom: 0;
-  border-radius: 0;
+.wrapper {
+  position: absolute;
   width: 100%;
-  background: #0B3954;
-  border-color: #708090;
+  top: 0;
+  left: 0;
+  overflow-x: hidden; 
+
 }
 
-nav {
-  text-align: center;
-  padding: 10px 0;
-  margin: 20px 0 0;
-  background: #0B3954;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav li {
-  display: inline-block;
-}
-
-nav img {
-  background-color: white;
-  border-radius: 10px;
-  border-top: 10px;
+.topBar {
+  width: 100%;
+  background-color: rgba(0, 0, 0, .9);
+  position: fixed;
+  color: #000000;
+  text-decoration: none;
+  z-index: 1000;
 }
 
 
-nav a{
-  font-weight: 800;
-  padding: 15px 10px;
+
+.mainNav {
+  margin: none;
+  float: right;
 }
 
-nav a, nav a:visited {
-  color: #fff;
+/*  .mainNav ul {
+    list-style-type: none;
+    margin: 0 10px;
+  
+  }*/
+
+  .mainNav li {
+    display: inline-block;
+    padding: 10px 0px;
+  }
+
+  .mainNav a {
+    color: #F7F4F3;
+    text-decoration: none;
+    padding: 10px 25px;
+  }
+
+  .mainNav a:hover {
+    color: #2DE1FC;
+  }
+
+#logo {
+  width: 70px;
+  height: 70px;
+  background-image: url('chronicle_logo_vector.svg');
 }
 
-nav a.selected, nav a:hover {
-  color: #000080;
-}
+/*  #logo:hover {
+    background-image: url('books.svg');
+  }*/
 
 /* search bar */
 .search-bar {
@@ -86,9 +98,7 @@ a {
   text-decoration: none;
 }
 
-body  {
-  font-family: "Open Sans", sans-serif;
-}
+/* Header */
 
 .wrapper {
   max-width: 940px;
