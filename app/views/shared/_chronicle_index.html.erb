@@ -11,6 +11,7 @@
 					<% end %>
 					<%=link_to chronicle.name, chronicle_path(chronicle) %>
 					<%= chronicle.description %>
+					<%= render partial: "chronicles/chronicle_carousel", locals: {chronicle: chronicle} %>
 
 					<div class="tags">
 					  <% unless chronicle.tags.blank? %>
