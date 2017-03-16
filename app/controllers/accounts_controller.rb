@@ -4,12 +4,8 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find(params[:id])
-    if @account.id == current_account.id
-      @mychronicles = Chronicle.joins(:subscriptions).where("subscriptions.account_id = ?", @account.id)
-    else
-      redirect_to '/'
-      flash[:notice] = "Not your account brah"
-    end
+    @mychronicles = Chronicle.joins(:subscriptions).where("subscriptions.account_id = ?", @account.id)  
+    @mychronicles_public = @mychronicles.select {|chron| chron.private == false}
   end
 
   def new

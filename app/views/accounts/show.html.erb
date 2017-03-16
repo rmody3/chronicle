@@ -3,15 +3,27 @@
   <link type="text/css" rel="stylesheet" href="assets/stylesheets/chronicles.css">
 </head>
 
-<h1>Welcome, <%= @account.name %>!</h1>
+<% if @account.id == current_account.id %>
+  <h1>Welcome, <%= @account.name %>!</h1>
+  <h4>Your Chronicles:</h4>
+<% else %>
+  <h1><%= @account.name %>'s Profile</h1>
+  <h4><%= @account.name %>'s Chronicles:</h4>
+<% end %>
 
-<h4>Your Chronicles:</h4>
+
   <ul>
-  	<% if @mychronicles %>
+  	<% if @mychronicles && @account.id == current_account.id %>
 	    <% @mychronicles.each do |c|%>
       <h3> <%= link_to c.name, chronicle_path(c) %> </h3>
       <%= render partial: "chronicles/chronicle_carousel", locals: {chronicle: c} %>
       <br>
 	    <% end %>
+    <% elsif @mychronicles %>
+      <% @mychronicles_public.each do |c|%>
+      <h3> <%= link_to c.name, chronicle_path(c) %> </h3>
+      <%= render partial: "chronicles/chronicle_carousel", locals: {chronicle: c} %>
+      <br>
+      <% end %>
   	<% end %>
   </ul>
