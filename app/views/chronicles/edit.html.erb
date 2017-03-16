@@ -1,38 +1,38 @@
 <h1>Edit <%= @chronicle.name %></h1>
+	<div class="center-chron">
+		<%= form_for @chronicle do |f| %>
 
-	<%= form_for @chronicle do |f| %>
+			<div class="editChronicle">
+			  <%= f.label :name %>
+			  <%= f.text_field :name, value: @chronicle.name %>
+			</div>
 
-		<div class="editChronicle">
-		  <%= f.label :name %>
-		  <%= f.text_field :name, value: @chronicle.name %>
-		</div>
+			<div class="editChronicle">
+			  <%= f.label :description %>
+			  <%= f.text_area :description, value: @chronicle.description %>
+			</div>
 
-		<div class="editChronicle">
-		  <%= f.label :description %>
-		  <%= f.text_area :description, value: @chronicle.description %>
-		</div>
+		  <div id="tag-box" >
+		    <a href="#" id="add-tag-button">Add a Tag</a>
 
-	  <div id="tag-box" >
-	    <a href="#" id="add-tag-button">Add a Tag</a>
-
-	    <% unless @chronicle.tags.blank? %>
-		    <% @chronicle.tags.each do |tag| %>
-						<br><%= link_to "remove", tag_path(tag, chronicle_id: @chronicle.id), method: :delete%>
-			    	<%= "##{tag.name}" %>
+		    <% unless @chronicle.tags.blank? %>
+			    <% @chronicle.tags.each do |tag| %>
+							<br><%= link_to "remove", tag_path(tag, chronicle_id: @chronicle.id), method: :delete%>
+				    	<%= "##{tag.name}" %>
 
 
+			    <% end %>
 		    <% end %>
-	    <% end %>
-	  </div>
+		  </div>
 
-		<div class="editChronicle">
-		  <%= f.label :private, 'Make Private?' %>
-		  <%= f.check_box :private, checked_value: @chronicle.private %>
-		</div>
+			<div class="editChronicle">
+			  <%= f.label :private, 'Make Private?' %>
+			  <%= f.check_box :private, checked_value: @chronicle.private %>
+			</div>
 
-		<div>
-		  <%= f.submit %>
-			<%= button_to('Delete this Chronicle', chronicle_path(@chronicle), method: :delete)%>
-		</div>
-
+			<div>
+			  <%= f.submit %>
+				<%= button_to('Delete this Chronicle', chronicle_path(@chronicle), method: :delete)%>
+			</div>
+	</div>
 <% end %>
