@@ -6,9 +6,9 @@
 			<li>
 				<div class="articleThumbnails">
 				<% if article["fields"]["thumbnail"].blank?%>
-					<%= image_tag('article_default', size: "100x60") %>
+					<%= image_tag('article_default', size: "300x150") %>
 				<% else %>
-					<%= image_tag(article["fields"]["thumbnail"], size: "100x60") %>
+					<%= image_tag(article["fields"]["thumbnail"], size: "300x150") %>
 				<% end %>
 				</div>
 
