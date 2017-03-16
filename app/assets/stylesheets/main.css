@@ -14,6 +14,10 @@ h1, h2, h3, h4, li {
   text-align: center;
 }
 
+form {
+  vertical-align: center;
+}
+
 link {
   color: #0B3954;
 }
@@ -91,13 +95,15 @@ nav a.selected, nav a:hover {
 }
 
 #logo {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   background-image: url('chronicle_logo_vector_light.svg');
+  background-repeat: no-repeat;
 }
 
   #logo:hover {
     background-image: url('chronicle_logo_vector_blue.svg');
+    background-repeat: no-repeat;
   }
 
 /* search bar */
@@ -109,6 +115,11 @@ nav a.selected, nav a:hover {
 
 a {
   text-decoration: none;
+}
+
+.login {
+  position: block;
+  text-align: center;
 }
 
 /*.wrapper {
@@ -132,10 +143,8 @@ a {
   font-size: 150%;
 }
 
-/*.downvotes {
-  position: inline-block;
 
-}*/
+
 
 .item {
   width:400px;

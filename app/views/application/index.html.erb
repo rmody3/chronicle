@@ -1,8 +1,12 @@
 <h1> Welcome to Chronicle</h1>
 <h4> Get the Whole Story: Create a Chronicle to track a topic over time</h4>
-<% unless current_account %>
-  <%= render "login"%>
-<% end %>
+
+<div class="login">
+  <% unless current_account %>
+    <%= render "login"%>
+  <% end %>
+</div>
+
 <div class="spacepic"></div>
 
   <div class="jumbotron jumbotron-fluid">
@@ -14,11 +18,15 @@
     </div>
   	<br>
     <%= render partial: "chronicles/chronicle_carousel", locals: {chronicle: chron} %>
+
+
   	<% if current_account %>
   		<% unless Subscription.find_by(chronicle_id: chron.id, account_id: current_account.id)  %>
   			<%= button_to('+', subscriptions_path, method: :post, params: {chronicle_id: chron.id})%>
   		<% end %>
   	<% end %>
+
+
   	<br>
   <% end %>
 </div>
