@@ -1,5 +1,15 @@
+
 <h1><%= @chronicle.name %></h1>
 <h3><%= @chronicle.description %></h3>
+
+<% if @chronicle.admin_id == current_account.id %>
+  <%= button_to('Edit this Chronicle', edit_chronicle_path(@chronicle), method: :get)%>
+<% elsif Subscription.find_by(account_id: current_account.id, chronicle_id: @chronicle.id) %>
+  <%= button_to('Remove this Chronicle', subscription_path(Subscription.find_by(account_id: current_account.id, chronicle_id: @chronicle.id)), method: :delete)%>
+<% else %>
+  <%= button_to('Add this Chronicle', subscriptions_path, method: :post, params: {chronicle_id: @chronicle.id})%>
+<% end %>
+
   <h5><%  if @chronicle.private == true%>
       	<%= "this chronicle is private"  %>
       <% else %>

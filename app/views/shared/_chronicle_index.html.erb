@@ -3,13 +3,12 @@
 		<% @chronicle_match.each do |chronicle| %>
 			<ul>
 				<div class="chronicles">
-					
+
 					<% if current_account %>
 						<% unless Subscription.find_by(chronicle_id: chronicle.id, account_id: current_account.id)  %>
 							<%= button_to('+', subscriptions_path, method: :post, params: {chronicle_id: chronicle.id})%>
 						<% end %>
 					<% end %>
-
 					<%=link_to chronicle.name, chronicle_path(chronicle) %>
 					<%= chronicle.description %>
 
