@@ -122,6 +122,11 @@ a {
   text-align: center;
 }
 
+.center {
+  position: block;
+  text-align: center;
+}
+
 /*.wrapper {
   max-width: 940px;
   margin: 0 auto;

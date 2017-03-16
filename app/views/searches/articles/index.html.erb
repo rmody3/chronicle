@@ -22,18 +22,19 @@
 
 <%= render partial: 'shared/article_index', locals: {search: @search_page_1 } %>
 
+<div class="center">
+	<%= button_tag("See #{@search_pagesize} More Articles", id: "page_2_button") %><br>
+	<div id="search_page2" class="hidden">
+		<%= render partial: 'shared/article_index', locals: {search: @search_page_2 } unless @search_page_2["response"]["status"] == "error" %>
+	</div><br>
 
-<%= button_tag("See #{@search_pagesize} More Articles", id: "page_2_button") %><br>
-<div id="search_page2" class="hidden">
-	<%= render partial: 'shared/article_index', locals: {search: @search_page_2 } unless @search_page_2["response"]["status"] == "error" %>
-</div><br>
+	<%= button_tag("See #{@search_pagesize} More Articles", id: "page_3_button", class: "hidden") %><br>
+	<div id="search_page3" class="hidden">
+		<%= render partial: 'shared/article_index', locals: {search: @search_page_3 } unless @search_page_3["response"]["status"] == "error" %>	
+	</div>
 
-<%= button_tag("See #{@search_pagesize} More Articles", id: "page_3_button", class: "hidden") %><br>
-<div id="search_page3" class="hidden">
-	<%= render partial: 'shared/article_index', locals: {search: @search_page_3 } unless @search_page_3["response"]["status"] == "error" %>	
-</div>
-
-<div id="snarkyMessage" class="hidden">
-	<p>Maybe you need to search for something else..</p>
+	<div id="snarkyMessage" class="hidden">
+		<p>Maybe you need to search for something else..</p>
+	</div>
 </div>
 
