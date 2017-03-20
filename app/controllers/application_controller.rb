@@ -7,6 +7,12 @@ class ApplicationController < ActionController::Base
     @chronicle_match = Chronicle.all.sort_by {|chron| chron.downvotes - chron.upvotes }
   end
 
+  def not_found
+    respond_to do |format|
+      format.html { render template: 'static/not_found', layout: false, status: 404 }
+    end
+  end
+
   def require_login
       redirect_to '/' if !logged_in?
   end

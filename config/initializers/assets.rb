@@ -9,7 +9,7 @@ Rails.application.config.assets.precompile += %w( owl.theme.css )
 Rails.application.config.assets.precompile += %w( owl.theme.default.css )
 
 Rails.application.config.assets.precompile += %w( main.css )
-
+Rails.application.config.assets.precompile += %w( not_found.css )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

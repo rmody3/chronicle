@@ -20,4 +20,7 @@ Rails.application.routes.draw do
   get "logout", to: "sessions#destroy"
   post "add_article", to:"article_chronicles#create"
 
+  #wildcard catch for anything and everything that has fallen through
+  get "*a", to: 'application#not_found'
+
 end
