@@ -9,7 +9,9 @@ class ApplicationController < ActionController::Base
 
   def not_found
     respond_to do |format|
-      format.html { render template: 'static/not_found', layout: false, status: 404 }
+
+      format.html { render template: 'static/404', layout: false, status: 404 }
+
     end
   end
 

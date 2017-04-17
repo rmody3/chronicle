@@ -1,4 +1,8 @@
-div {
+
+
+.error-text {
+    opacity: 0;
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -7,21 +11,9 @@ div {
     width: 100%;
     position: absolute;
     overflow: visible;
-
 }
 
-.body {
-    top: 0%;
-    left: 0%;
-    position: absolute;
-    overflow: visible;
-}
-
-.text {
-    opacity: 0;
-}
-
-#backdrop {
+#error-backdrop {
     opacity: 0;
     left:-10%;
     top:-5%;
