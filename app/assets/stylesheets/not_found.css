@@ -1,8 +1,6 @@
 
-
 .error-text {
     opacity: 0;
-
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -14,13 +12,17 @@
 }
 
 #error-backdrop {
+    position: absolute;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
     opacity: 0;
     left:-10%;
     top:-5%;
     width:117%;
     height:113%;
     background: url("ww/404_arnold.jpg") no-repeat center center;
-    background-size: 100% 100%;
+    background-size: 100%;
 
     animation: fadeIn 5s forwards, moveBernard 40s ease-out forwards;
 }
