@@ -1,27 +1,25 @@
-
-	<ol>
-		<% @chronicle_match.each do |chronicle| %>
-			<ul>
-				<div class="chronicles">
-
-					<% if current_account %>
-						<% unless Subscription.find_by(chronicle_id: chronicle.id, account_id: current_account.id)  %>
-							<%= button_to('+', subscriptions_path, method: :post, params: {chronicle_id: chronicle.id})%>
-						<% end %>
-					<% end %>
-					<%=link_to chronicle.name, chronicle_path(chronicle) %>
-					<%= chronicle.description %>
-					<%= render partial: "chronicles/chronicle_carousel", locals: {chronicle: chronicle} %>
-
-					<div class="tags">
-					  <% unless chronicle.tags.blank? %>
-					    <% chronicle.tags.each do |tag|%>
-					      <%=link_to "##{tag.name}", searches_path("search[search_term]": tag.name, commit: "Chronicles")%>
-					    <% end %>
-					  <% end %>
-					</div>
-
-				</div>
-		</ul>
-		<% end %>
-	</ol>
+<% @chronicle_match.each do |chronicle| %>
+	<div class="chronicles">
+		<h3><%=link_to chronicle.name, chronicle_path(chronicle) %></h3>
+		<div class="chronicle-display">
+			<% if current_account %>
+				<% unless Subscription.find_by(chronicle_id: chronicle.id, account_id: current_account.id)  %>
+					<%= button_to('Subscribe', subscriptions_path, method: :post, params: {chronicle_id: chronicle.id}, class: "btn btn-primary")%>
+				<% end %>
+			<% end %>
+		</div>
+		<div class="chronicle-display">
+			<%= chronicle.description %>
+		</div>
+		<div class="chronicle-display">
+			<div class="tags">
+			  <% unless chronicle.tags.blank? %>
+			    <% chronicle.tags.each do |tag|%>
+			      <%=link_to "##{tag.name}", searches_path("search[search_term]": tag.name, commit: "Chronicles")%>
+			    <% end %>
+			  <% end %>
+			</div>
+		</div>
+		<%= render partial: "chronicles/chronicle_carousel", locals: {chronicle: chronicle} %>
+	</div>
+<% end %>

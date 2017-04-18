@@ -1,32 +1,12 @@
-<h1> Welcome to Chronicle</h1>
-<h4> Get the Whole Story: Create a Chronicle to track a topic over time</h4>
 
-<div class="login">
-  <% unless current_account %>
-    <%= render "login"%>
-  <% end %>
+<div class="welcome row">
+  <h1 class="deepshadow"> Welcome to Chronicle</h1>
+  <h4 class="welcome-description"> When it comes to news, context is everything. Chronicle helps get the whole story. Create "chronicles" by grouping articles together by a common theme or storyline. Use this app to create your own public or private chronicles and follow other users' public chronicles to get the full scoop on everything!</h4>
+  <div class="login welcome-description">
+    <% unless current_account %>
+      <%= render "login"%>
+    <% end %>
+  </div>
 </div>
-
-<div class="spacepic"></div>
-
-  <div class="jumbotron jumbotron-fluid">
-  <h3> Today's Trending Chronicles</h3>
-    <div class="trending-chronicles">
-      <% @chronicle_match[0...5].each do |chron| %>
-    	<%= link_to chron.name, chronicle_path(chron) %>
-    	<%= link_to image_tag('books.svg', size: '100x100'), chron.name %>
-    </div>
-  	<br>
-    <%= render partial: "chronicles/chronicle_carousel", locals: {chronicle: chron} %>
-
-
-  	<% if current_account %>
-  		<% unless Subscription.find_by(chronicle_id: chron.id, account_id: current_account.id)  %>
-  			<%= button_to('+', subscriptions_path, method: :post, params: {chronicle_id: chron.id})%>
-  		<% end %>
-  	<% end %>
-
-
-  	<br>
-  <% end %>
-</div>
+<h3> Today's Trending Chronicles</h3>
+<%= render "shared/chronicle_index" %>

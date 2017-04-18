@@ -6,6 +6,7 @@
 
 body {
   font-family: 'Raleway', sans-serif;
+  padding-top: 50px
 
 }
 
@@ -38,6 +39,8 @@ h1 {
 
 /* nav bar*/
 
+
+
 /*.row {
   margin:auto;
   display: inline-block;
@@ -47,18 +50,8 @@ h1 {
   background: #0B3954;
   border-color: #708090;
 }*/
+/*
 
-.navbar {
-  font-family: 'Raleway', sans-serif;
-  top: 0;
-  text-align: center;
-  width: 100%;
-  height: 110px;
-  background-color: rgba(22, 37, 33 .9);
-  color: #5E6973;
-  position: fixed;
-  z-index: 1000;
-}
 
 nav li {
   display: inline-block;
@@ -82,11 +75,11 @@ nav a, nav a:visited {
 
 nav a.selected, nav a:hover {
   color: #2DE1FC;
-}
+}*/
 
-.page-wrapper {
+/*.page-wrapper {
   margin-top: 120px;
-}
+}*/
 
 #logo-nav {
   text-decoration: none;
@@ -108,10 +101,15 @@ nav a.selected, nav a:hover {
   }
 
 /* search bar */
-.search-bar {
+/*.search-bar {
   margin-top: -50px;
   float:center;
   position: inline-block;
+}*/
+
+#additionalSearchParams {
+  color: white;
+  padding-top: 10px
 }
 
 a {
@@ -156,8 +154,6 @@ a {
 }
 
 
-
-
 .item {
   width:auto;
   height:auto;
@@ -182,16 +178,45 @@ a.articleLink {
   color:white;
 }
 
-.spacepic{
-    height: 400px;
+.welcome{
+    height: 600px;
     background-image: url("homeBackground.png");
-    background-position: center center;
-    background-size: 100% 100%;
-    width: 100%;
+    background-position: 0 25%;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: cover;
-    /*padding-top: 10px;*/
+}
+
+.deepshadow {
+    font-size: 3.5em;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #e0dfdc;
+    letter-spacing: .1em;
+    text-shadow:
+      0 -1px 0 #fff,
+      0 1px 0 #2e2e2e,
+      0 2px 0 #2c2c2c,
+      0 3px 0 #2a2a2a,
+      0 4px 0 #282828,
+      0 5px 0 #262626,
+      0 6px 0 #242424,
+      0 7px 0 #222,
+      0 8px 0 #202020,
+      0 9px 0 #1e1e1e,
+      0 10px 0 #1c1c1c,
+      0 11px 0 #1a1a1a,
+      0 12px 0 #181818
+  }
+
+.welcome-description{
+  color: #e0dfdc;
+  width: 50%;
+  transform: translate(50%);
+}
+
+.chronicle-display{
+  display: inline-block;
 }
 
 /**************************************
